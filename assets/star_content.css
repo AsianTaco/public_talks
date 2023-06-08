@@ -1,0 +1,13 @@
+a:link { text-decoration: none; color: #95a6d9 }
+a:visited { text-decoration: none; color: #95a6d9; }
+a:hover, a:active { text-decoration: none; color:#ededf5 }
+
+.index-content {
+    z-index: 2;
+}
+
+.index-content .talk-entry {
+    text-align: left; text-indent: 2em; margin-bottom: 0.5em;
+}
+h1 {color: whitesmoke; font-family: Helvetica, sans-serif; font-weight: bolder; font-size: 3em;}
+h2 {color: lightgrey; font-family: Helvetica, sans-serif; font-weight: bolder; font-size: 2em;}
