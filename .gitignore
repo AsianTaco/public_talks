@@ -1,0 +1,11 @@
+# IDE files
+
+.idea
+
+# npm files
+node_modules/
+
+# potentially big files
+
+*/assets
+*/talks

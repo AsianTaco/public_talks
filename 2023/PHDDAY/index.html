@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>NPE</title>
+
+    <meta name="description" content="A physics inspired neural network">
+    <meta name="author" content="Simon Ding">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/white.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background-image="assets/euclid_mock.png" data-background-size="cover">
+            <div style="border-radius: 15px 80px; background: #eef9f9; text-align: center">
+                <h2>Fast realistic, differentiable, <br> mock halo generation</h2>
+                <h4>for wide-field galaxy surveys</h4>
+            </div>
+            <div style="padding: 10px"></div>
+            <div style="border-radius: 15px; background: #ddefef; text-align: center">
+                <p><b>Simon Ding, 2nd year PhD student</b></p>
+                <p style="font-size:50%;">supervised by <b>Guilhem Lavaux (IAP) & Jens Jasche (Stockholm University)</b>
+                </p>
+            </div>
+            <div style="position:relative; top:-25px;">
+                <img style="position:relative; left:-30px;" src=" assets/guilhem.jpeg" height="90px">
+                <img style="position:relative; left:30px;" src="assets/jens.jpeg" height="90px">
+            </div>
+        </section>
+        <section>
+            <section style="text-align: left">
+                <p><b>Goal:</b> Understand the nature of our universe</p>
+                <div style="padding-top: 1em" class="fragment"><b>Method:</b><br></div>
+                <p class="fragment" style="position:relative; left:40px;">&bull; Measure things around us
+                    (<span class="fragment highlight-current-red">Data</span>)
+                </p>
+                <p class="fragment" style="position:relative; left:40px;">&bull; Compare against our theoretical
+                    understanding
+                    (<span class="fragment highlight-current-red">Model</span>)
+                </p>
+                <aside class="notes">
+                    <p>dynamics (past, present, future), how does gravity work, what is dark energy, the content
+                        (what is dark matter), </p>
+                    <p>Physics model also includes systematics, light-cones, masking etc.</p>
+                </aside>
+            </section>
+<!--            <section data-background-image="assets/Planck_history_of_Universe.jpg" data-background-size="100%">
+                <img class="fragment" src="assets/sdss.jpg" height="600px">
+            </section>-->
+            <section class="r-stack">
+                <div style="position: relative; right: 40px; top: 20px">
+                    <img src="assets/sdss.jpg" width="600px" style="display: inline; vertical-align: middle">
+                    <div class="fragment" style="display: inline"> &xrarr; Compress: $P(k)$</div>
+                </div>
+                <img class="fragment" style="position: relative; bottom: 500px; left: 363px" src="assets/sdss_pk.gif" height="400px">
+            </section>
+            <section data-background-image="assets/field-level-inference.png" data-background-size="90%"></section>
+            <section style="text-align: left">
+                <p><b>Want:</b> Usage of whole field</p>
+                <p><b>Challenge:</b> Statistics of the observables hard to describe</p>
+                <p class="fragment" style="padding-top: 1em"><b>BUT:</b> Initial conditions are very Gaussian</p>
+                <p class="fragment"><b>Method:</b> Bayesian field-level inference of the <b class="fragment highlight-red">initial conditions</b></p>
+                <p class="fragment"><b>Need:</b> Forward model containing <b>all</b> the physics</p>
+                <p class="fragment" style="padding-top: 1em; text-align: center">&rarr; Model for going from ICs to some
+                    observables</p>
+                <aside class="notes">
+                    <p>Observables are e.g. galaxy catalogs</p>
+                    <p>Physics model also includes systematics, light-cones, masking etc.</p>
+                </aside>
+            </section>
+            <section>
+                <h4>Bayesian Origin Reconstruction from Galaxies (BORG)</h4>
+                <div class="r-stack">
+                    <div>
+                        <img src="assets/borg.png">
+                        <p style="font-size:50%; padding-top: 2em">Jasche, Kitaura, Wandelt (2010), Jasche & Lavaux
+                            (2015), Lavaux &
+                            Jasche
+                            (2016), Jasche & Lavaux (2019);&nbsp;&nbsp;&nbsp;&nbsp; Image credit: D.K Ramanah
+                        </p>
+                    </div>
+                    <p class="fragment"
+                       style="color: #1d7627; transform: rotate(-20deg); background-color: #e4e8ec; border-radius: 15px; position: relative; right: 160px; bottom: 35px">
+                        <b>My work</b></p>
+                    <p class="fragment"
+                       style="color: #1d7627; position: relative; top: 180px; right: 120px; font-size: 80%">
+                        $\delta_m(x) \rightarrow n\big(M|\delta_m(x)\big)$
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h3 style="padding-bottom: 1em">Halo bias is complex</h3>
+                <ul>
+                    <li>Linear models (with $\delta_m \propto \delta_h$) <b>only</b> valid on large scales</li>
+                    <li>Phase-space halo finders <b>very costly</b> and <b>non-differentiable</b></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Neural physical engines (NPE)</h2>
+                <p style="font-size:60%;">First developed by T. Charnock et al. (2019)</p>
+            </section>
+            <section>
+                <div class="r-stack">
+                    <div>
+                        <div class="fragment" data-fragment-index="1"
+                             style="text-align: left; font-size: 80%; transform: rotate(-15deg)">
+                            <span style="position: relative; left: 210px">
+                            <span class="fragment" data-fragment-index="2">&bullet; Use non-local information</span><br>
+                            <span class="fragment" data-fragment-index="5">&bullet; Use isotropy</span>
+                            </span>
+                        </div>
+                        <div class="fragment" data-fragment-index="6"
+                             style="font-size: 80%; position: relative; left:55px; transform: rotate(-15deg)">
+                            &bullet; Model non-linearity
+                        </div>
+                        <div class="fragment" data-fragment-index="8"
+                             style="font-size: 80%; position: relative; bottom: 50px; left:380px; transform: rotate(-15deg)">
+                            &bullet; Generative process
+                        </div>
+                        <p>
+                    <span><img class="fragment" data-fragment-index="0" src="assets/density.png" height="200"
+                               style="display: inline;
+                             vertical-align: middle"> <span class="fragment" data-fragment-index="2">&rArr;</span>
+                        <img class="fragment" data-fragment-index="4" src="assets/kernels_evol_9.png"
+                             height="200"
+                             style="display: inline; vertical-align: middle"></span>
+                            <span class="fragment" data-fragment-index="7">&rArr;<img src="assets/mdn.png" height="200"
+                                                                                      style="display: inline; vertical-align: middle"></span>
+                            <span class="fragment" data-fragment-index="9">&rArr;<img src="assets/sampling.png"
+                                                                                      width="300"
+                                                                                      style="display: inline; vertical-align: middle"></span>
+                        </p>
+                        <p><span class="fragment highlight-current-red" data-fragment-index="0" style="position: relative; right: 50px">$\delta_m(x)$ &rarr; </span>
+                            <span class="fragment" data-fragment-index="4" style="position: relative; right: 23px"><b>Convolve</b> &rarr;</span>
+                            <span class="fragment" data-fragment-index="7"><b>Transform</b> &rarr;</span>
+                            <span class="fragment" data-fragment-index="9" style="position: relative; left: 20px"><b>Sample</b> &rarr;</span>
+                            <span class="fragment highlight-current-red" data-fragment-index="1" style="position: relative; left: 55px">$n\big(M|\delta_m(x)\big)$</span>
+                        </p>
+                    </div>
+                    <img class="fragment current-visible" data-fragment-index="5"
+                         style="position: relative; right: 232px; top: 50px" src="assets/multipole_evol.gif"
+                         width="450">
+                </div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Results</h2>
+                <p style="font-size:60%;">S. Ding et al. (in prep.)</p>
+            </section>
+            <section>
+                <img src="assets/results.gif" height="650">
+            </section>
+            <section>
+                <img src="assets/two_point_bin_0.png" height="650">
+            </section>
+            <section>
+                <img src="assets/two_point_bin_1.png" height="650">
+            </section>
+        </section>
+        <section>
+            <div class="r-stack">
+                <div>
+                    <h3 style="padding-bottom: 1em">Summary</h3>
+                    <p style="text-align: left">&bull; Differentiable & generative model that can produce realistic
+                        mocks
+                        <br>
+                        &nbsp;&nbsp;&nbsp; &rArr; <b>Halo mock generator</b> for <b>LARGE</b> (Euclid-like) volumes</p>
+                    <p style="text-align: left">&bull; Robust & interpretable model</p>
+                    <p style="text-align: left">&bull; Modular GPU-accelerated implementation</p>
+                    <p style="text-align: left">&bull; Reduced number of weights
+                        <br>
+                        &nbsp;&nbsp;&nbsp; &rArr; Direct inference of model parameters possible
+                    </p>
+                </div>
+                <img class="fragment" style="position: relative; top: 130px; left: 480px; transform: rotate(17deg)"
+                     src="assets/capybara.jpeg" height="150">
+            </div>
+
+        </section>
+    </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+    Reveal.initialize({
+        hash: true,
+        margin: 0.02,
+        width: 1200,
+        slideNumber: true,
+        controls: false,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3]
+    });
+</script>
+</body>
+</html>
