@@ -4,24 +4,48 @@ Repository of public talks
 
 ### Creating a new Presentation:
 
-- Create a new branch, make a copy of **template/** , and `cd` to the newly created presentation folder
+#### Step 1
+
+Create a new branch, make a copy of **template/** , and `cd` to the newly created presentation folder
   ```bash
   cp -r template $NEWPRESENTATIONFOLDER
   cd $NEWPRESENTATIONFOLDER
   ```
-- git submodule current version of reveal.js
+
+#### Step 2 (Option 1)
+
+If you want an individual reveal.js instance for the talk, then use git to create a submodule of current (or any other) version of reveal.js
+
   ```bash
   git submodule add https://github.com/AsianTaco/reveal.js
   cd reveal.js
   git submodule update --init --recursive
   cd ..
   ```
-- Back in the new talk directory, copy `package.json` and `gulpfile.js` from the **reveal.js/** folder to the talk
+
+#### Step 3 (Option 2)
+
+If you don't care too much about the specific version of reveal.js, then it suffices to use the already initialised
+submodule of reveal.js in the root of this repository. To make it findable for the talk create a soft-link to the installation via
+
+  ```bash
+  ln -s $PATHTOREPOSITORYROOT/reveal.js/ reveal.js
+  cd $PATHTOREPOSITORYROOT/reveal.js/
+  git submodule update --init --recursive
+  cd -
+  ```
+
+#### Step 4
+
+Back in the new talk directory, copy `package.json` and `gulpfile.js` from the **reveal.js/** folder (be careful to check that it's the correct relative path) to the talk
   directory via
   ```bash
-  cp reveal.js/gulpfile.js reveal.js/package.json .
+  cp $PATHTOREVEALJS/reveal.js/gulpfile.js $PATHTOREVEALJS/reveal.js/package.json .
   ```
-- If you want to make use of multimedia files, add a soft-link to the **assets/** folder by running
+
+#### Step 5 (Optional)
+
+If you want to make use of multimedia files, add a soft-link to the **assets/** folder by running
   ```bash
   ln -s $PATHTOREPOSITORYROOT/assets/ assets
   ```
