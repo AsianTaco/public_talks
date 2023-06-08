@@ -1,0 +1,3 @@
+[submodule "2023/PHDDAY/reveal.js"]
+	path = 2023/PHDDAY/reveal.js
+	url = https://github.com/AsianTaco/reveal.js
