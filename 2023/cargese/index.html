@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>NPE</title>
+
+  <meta name="description" content="A physics inspired neural network">
+  <meta name="author" content="Simon Ding">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="reveal.js/dist/theme/white.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h2  style="padding-top: 1.4em">Fast realistic, differentiable, <br> mock halo generation</h2>
+      <h4>for wide-field galaxy surveys</h4>
+      <p style="padding-top: 1em"><b>Simon Ding, PhD @ Institut d'Astrophysique de Paris</b></p>
+      <p>supervised by <b>Guilhem Lavaux & Jens Jasche</b></p>
+      <p style="padding-top: 1em;"><img src="assets/aquila.jpg" height="70px"> &nbsp; <img src="assets/iap.png" height="70px"></p>
+    </section>
+    <section>
+      <section>
+        <p><b>Want:</b> Bayesian field-level inference of the IC of our universe</p>
+        <p class="fragment"><b>Need:</b> Forward model containing all the physics</p>
+        <p class="fragment" style="padding-top: 1em">&rarr; Model for going from ICs to some observables</p>
+        <aside class="notes">
+          <p>Observables are e.g. galaxy catalogs</p>
+          <p>Physics model also includes systematics, light-cones, masking etc.</p>
+        </aside>
+      </section>
+      <section>
+        <h4>My work</h4>
+        <p>Mapping between <span class="fragment highlight-current-red">dark matter density</span> to <span class="fragment highlight-current-red">halo count fields</span></p>
+        <p class="fragment">$$\delta_m(x) \rightarrow n\big(M|\delta_m(x)\big)$$</p>
+        <p class="fragment"><b>Halo bias model</b></p>
+      </section>
+      <section>
+        <h3 style="padding-bottom: 1em">Halo bias is complex</h3>
+        <ul>
+          <li>Linear models only valid on large scales</li>
+          <li>Phase-space halo finders very costly</li>
+          <li>Need differentiability</li>
+        </ul>
+      </section>
+      <section data-background-image="assets/ml.png" data-background-size="contain"></section>
+    </section>
+    <section>
+      <section><h2>NPE model</h2></section>
+      <section>
+        <h4>Main design ideas:</h4>
+        <p class="fragment">&bull; Take into account non-local information</p>
+        <p class="fragment">&bull; Model linear <b>and</b> non-linear behaviour</p>
+        <p class="fragment">&bull; Make use of isotropy</p>
+        <p class="fragment">&bull; Generative process with stochasticity</p>
+        <aside class="notes">
+          <p>link isotropy to cosmological principle</p>
+        </aside>
+      </section>
+      <section>
+        <h3>Likelihood assumption</h3>
+        <p>
+          <span><img src="assets/density.png" width="150" style="display: inline; vertical-align: middle">&rarr;<img src="assets/kernels_evol_9.png" width="300" style="display: inline; vertical-align: middle"></span>
+          <span>&rarr;<img src="assets/mdn.png" width="300" style="display: inline; vertical-align: middle"></span>
+          <span>&rarr; $n\big(M|\delta_m(x)\big)$</span>
+        </p>
+        <p><b>Convolve</b> &rarr; $\psi(x)$ &rarr; <b>Transform</b> &rarr; $P(M|\delta_m)$ &rarr; <b>Sample</b></p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Results</h2>
+      </section>
+      <section>
+        <img src="assets/npe_results.gif" height="650">
+      </section>
+      <section>
+        <img src="assets/power_spec.png" height="600">
+      </section>
+      <section>
+        <img src="assets/bispec.png" height="600">
+      </section>
+    </section>
+    <section>
+      <h3 style="padding-bottom: 1em">Summary</h3>
+      <p style="text-align: left">&bull; Model has reduced number of weights &rarr; zero-shot learning</p>
+      <p style="text-align: left">&bull; Generative model that can generate realistic mocks once trained</p>
+      <p style="text-align: left">&bull; Kernel weights can be interpreted</p>
+      <p style="text-align: left; padding-top: 1em">&bull; <b>Shameless plug: </b> <a href="https://github.com/AsianTaco/bias-model-test-bench">Bias test bench</a></p>
+      <p style="text-align: left">&bull; Happy to chat in person or via <a href="mailto:simon.ding@iap.fr">simon.ding@iap.fr</a></p>
+    </section>
+  </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    margin: 0.02,
+    width: 1200,
+    slideNumber: true,
+    controls: false,
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ]
+  });
+</script>
+</body>
+</html>
