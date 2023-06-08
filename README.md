@@ -28,7 +28,7 @@ Repository of public talks
 
 ### Running local presentation environment
 
-Make sure to have installed node.js and npm on your computer.
+Make sure to have installed [node.js](https://nodejs.org/en) and [npm](https://www.npmjs.com/) on your computer.
 Then update/install npm modules for reveal.js:
 
 ```bash
