@@ -25,24 +25,31 @@
 <body>
 <div class="reveal">
     <div class="slides">
-        <section data-transition="none" data-background-image="assets/euclid_mock.png" data-background-size="1200 700" style="position: relative">
-            <div data-transition="none" style="background-color: white; position: relative; right: 200px; top: 600px; width: 1600px; height: 200px; display: flex; justify-content: center" >
-                <img src="assets/EC_logos_official_Blue_with_text.png" style="display:inline; height: 80px; padding: 0px 5px 0px 5px;">
+        <section data-transition="none" data-background-image="assets/euclid_mock.png" data-background-size="1200 700"
+                 style="position: relative">
+            <div data-transition="none"
+                 style="background-color: white; position: relative; right: 200px; top: 600px; width: 1600px; height: 200px; display: flex; justify-content: center">
+                <img src="assets/EC_logos_official_Blue_with_text.png"
+                     style="display:inline; height: 80px; padding: 0px 5px 0px 5px;">
                 <img src="assets/iap.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
                 <img src="assets/aquila.jpg" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
                 <img src="assets/sorbonne_logo.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
-                <img src="assets/stockholm-university.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/stockholm-university.png"
+                     style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
             </div>
-            <div data-transition="none" style="position: relative; bottom:100px"><div style="border-radius: 15px 80px; background: #ddefef; text-align: center">
-                <h2>Fast realistic, differentiable, <br> mock halo generation</h2>
-                <h4>for wide-field galaxy surveys</h4>
-            </div>
+            <div data-transition="none" style="position: relative; bottom:100px">
+                <div style="border-radius: 15px 80px; background: #ddefef; text-align: center">
+                    <h2>Fast realistic, differentiable, <br> mock halo generation</h2>
+                    <h4>for wide-field galaxy surveys</h4>
+                </div>
                 <div data-transition="none" style="padding: 10px"></div>
                 <div data-transition="none" style="border-radius: 15px; background: #ddefef; text-align: center">
                     <p><b>Simon Ding, PhD student @ IAP, France</b></p>
-                    <p style="font-size:70%;">supervised by <b>Guilhem Lavaux (IAP) & Jens Jasche (Stockholm University)</b>
+                    <p style="font-size:70%;">supervised by <b>Guilhem Lavaux (IAP) & Jens Jasche (Stockholm
+                        University)</b>
                     </p>
-                </div></div>
+                </div>
+            </div>
         </section>
         <section data-transition="none">
             <h4>Bayesian Origin Reconstruction from Galaxies (BORG)</h4>
@@ -91,7 +98,7 @@
             </aside>
         </section>
         <section>
-            <h3 style="position: relative; bottom: 50px">Mock halo catalogues from <br> Neural Physical Engines (NPE)
+            <h3 style="position: relative; bottom: 0px">Mock halo catalogues from <br> Neural Physical Engines (NPE)
             </h3>
             <div style="position: relative;">
                 <div class="fragment" data-fragment-index="0"
@@ -118,27 +125,33 @@
                      style="display: inline-block; vertical-align: middle; width: 330px; text-align: left">
                     <p>From approximate gravity solvers <br> i.e. 2LPT</p>
                 </div>
-                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b></div>
+                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b>
+                </div>
                 <div class="fragment" data-fragment-index="1"
                      style="width: 400px; display: inline-block; vertical-align: middle">
                     <p>
                     <ul>
-                        <li>fast</li>
-                        <li>differentiable</li>
+                        <li>fast & differentiable</li>
+                        <li>Stochastic</li>
+                        <li>Explainable</li>
                         <li>17-32 parameters</li>
                     </ul>
                     </p>
                 </div>
-                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b></div>
+                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b>
+                </div>
                 <div class="fragment" data-fragment-index="2"
                      style="text-align: left; width: 300px; display: inline-block; vertical-align: middle">
-                    <p>Validated at:
-                    <ul >
+                    <p>Validated at:</p>
+                    <ul>
                         <li>1pt</li>
                         <li>2pt</li>
                     </ul>
-                    </p>
                 </div>
+            </div>
+            <div class="fragment" data-fragment-index="3"
+                 style="font-size:50%; padding-top: 0em; position: relative; top: 30px; text-align: left">
+                See Charnock et al. (2020)
             </div>
             <aside class="notes">
                 <p>Generate mock halo catalogues from overdensity fields</p>
@@ -148,15 +161,46 @@
         </section>
         <section>
             <section>
-                <img class="fancy_img" src="assets/npe_results.gif" height="650">
+                <img class="fancy_img" src="assets/NPE/results.gif" height="650">
             </section>
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_000.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_001.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_002.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_003.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_004.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_005.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_006.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_007.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_008.png" height="650">-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/NPE/compare_009.png" height="650">-->
+<!--            </section>-->
             <section>
                 <img class="fancy_img" src="assets/2lpt_2pt_results.png" height="650">
             </section>
         </section>
         <section style="text-align: left">
-            <p style="font-size: 1.2em">Happy to chat in person or via <a href="mailto:simon.ding@iap.fr">simon.ding@iap.fr</a></p>
-            <p style="font-size: 1.2em; padding-top: 1em"><b>Catch me at</b></p>
+            <p style="font-size: 1.2em">Happy to chat in person or via <a href="mailto:simon.ding@iap.fr">simon.ding@iap.fr</a>
+            </p>
+            <p style="font-size: 1.2em; padding-top: 1em"><b>Join me at</b></p>
             <p style="text-indent: 50px">Field-level inference Splinter - <b>Wednesday 16:00 - 17:30</b></p>
             <p style="text-indent: 50px">Extended talk @ Emulators Splinter - <b>Thursday 14:00 - 15:30</b></p>
         </section>
