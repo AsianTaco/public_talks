@@ -69,22 +69,29 @@
                 <div class="fragment fade-out" data-fragment-index="6"
                      style="background-color: white; width:740px;height:150px; position: relative; right:200px; bottom: 240px"></div>
 
-                <div class="fragment fade-out"
+                <div class="fragment fade-out" data-fragment-index="7"
                      style="background-color: white; width:400px;height:150px; position: relative; left:370px; bottom: 239px"></div>
                 <div>
                     <img src="assets/borg.png">
                     <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
-                        <div class="fragment" style="display: inline; width: 800px; text-align: left">Jasche & Wandelt
+                        <div class="fragment" data-fragment-index="8"
+                             style="display: inline; width: 800px; text-align: left">Jasche & Wandelt
                             (2013);
                             Jasche, Leclercq, Wandelt (2015);
                             Lavaux & Jasche (2016); <br>
                             Jasche & Lavaux (2019);
                             Lavaux, Jasche, Leclercq (2019);
                         </div>
-                        <div class="fragment" style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah</div>
+                        <div class="fragment" data-fragment-index="8"
+                             style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah
+                        </div>
                     </div>
                 </div>
-                <p class="fragment"
+                <p class="fragment" data-fragment-index="9"
+                   style="color: #1d7627; transform: rotate(-10deg); background-color: #e4e8ec; border-radius: 15px; position: relative; left: 320px; bottom: 172px">
+                    <b>My work</b>
+                </p>
+                <p class="fragment" data-fragment-index="9"
                    style="color: #1d7627; transform: rotate(-20deg); background-color: #e4e8ec; border-radius: 15px; position: relative; right: 160px; bottom: 42px">
                     <b>My work</b></p>
                 <p class="fragment"
@@ -124,7 +131,7 @@
                 <p style="font-size: 1.1em"><b>Want to be smarter than Machine learning..</b></p>
                 <ul>
                     <li class="fragment">Physical loss function</li>
-                    <li class="fragment">Avoid the fear of over-fitting</li>
+                    <li class="fragment">Avoid the fear of overfitting</li>
                     <li class="fragment">Avoid black box &rarr; want to learn about physics</li>
                 </ul>
             </section>
@@ -266,13 +273,26 @@
             </section>
             <section>
                 <p style="font-size: 1.2em; text-align: left"><b>Note that</b></p>
-                <ul>
-                    <li class="fragment">Loss <b>only</b> based on the Poisson likelihood</li>
-                    <li class="fragment">Sample as many realizations as we want</li>
-                    <li class="fragment">Results translate to differently seeded over-density fields</li>
-                    <li class="fragment">Alternatively, the network weights can be sampled via MCMC
+                <ul style="padding-top: 1em">
+                    <li class="fragment">
+                        <b>Physical loss</b>
                         <br>
-                        &rArr; Yields model uncertainty
+                        <span style="font-size: 70%; color: gray">Loss only based on Poisson likelihood</span>
+                    </li>
+                    <li class="fragment">
+                        <b>Generative process</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Sample as many realizations as we want</span>
+                    </li>
+                    <li class="fragment">
+                        <b>Generalizable model</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Results translate to differently seeded over-density fields</span>
+                    </li>
+                    <li class="fragment">
+                        <b>Bayesian Neural Network</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Network weights can be sampled via MCMC</span>
                     </li>
                 </ul>
             </section>
@@ -331,24 +351,29 @@
             </section>
             <section>
                 <h4>Gaussian mixture network</h4>
-                <p style="padding-bottom: 0">$$n_j\big(M|\boldsymbol{\psi_j}\big) = \sum_{i}^{N} \alpha_{ij}
+                <p style="padding-bottom: 0">$$n_j\big(M|\boldsymbol{\psi_j}\big) = \frac{\bar{N}_j}{V} \sum_{i}^{N}
+                    \alpha_{ij}
                     \mathcal{N}(\mu_{ij},\sigma_{ij})$$</p>
                 <span>
-                    <p style="text-align: left">$\alpha_{ij} = \text{softplus}(w_i^\alpha\boldsymbol{\psi_j} + b_i^\alpha)$</p>
+                    <p style="text-align: left">$\bar{N}_j = \exp\left[\omega^{\bar{N}}\boldsymbol{\psi_j} + b^{\bar{N}} \right]$</p>
+                    <p style="text-align: left">$\alpha_{ij} = \text{softmax}(w_i^\alpha\boldsymbol{\psi_j} + b_i^\alpha)$</p>
                     <p style="text-align: left">$\mu_{ij} = \begin{cases}
                         w_i^\mu\boldsymbol{\psi_j} + b_i^\mu &\text{if $i = 0$}\\
                         \text{max}\big[ w_i^\mu\boldsymbol{\psi_j} + b_i^\mu \big] + \mu_{i-1} &\text{if $ i > 0$}
                         \end{cases}$
                     </p>
-                    <p style="text-align: left">$\sigma_{ij} = \text{softplus}(w_i^\sigma\boldsymbol{\psi_j} + b_i^\sigma)$</p>
+                    <p style="text-align: left">$\sigma_{ij} = \exp\left[w_i^\sigma\boldsymbol{\psi_j} + b_i^\sigma\right]$</p>
                 </span>
             </section>
             <section>
                 <h4>Sampling</h4>
-                <p style="padding-bottom: 1em">$n_j\big(M|\boldsymbol{\psi_j}\big) = \bar{N}_j \mathcal{P}(M|\boldsymbol{\psi_j}, \boldsymbol{w})$ <span class="fragment">$=\sum_{i}^{N} \alpha_{ij} \mathcal{N}(\mu_{ij},\sigma_{ij})$</span></p>
-                <p>$\rightarrow \bar{N}_j = \sum_{i}^{N} \alpha_{ij}$</p>
-                <p>$\langle N_{M}\rangle = \bar{N}_j$ is Poisson</p>
-                <p style="padding-top: 1em">$N_j\curvearrowleft P(\lambda_j = \sum_{i}^{N} \alpha_{ij})$ <span class="fragment"> &rarr; $\{M_j\} \curvearrowleft \frac{1}{\bar{N}_j}\sum_{i}^{N} \alpha_{ij} \mathcal{N}(\mu_{ij},\sigma_{ij})$</span></p>
+                <p style="padding-bottom: 1em">$n_j\big(M|\boldsymbol{\psi_j}\big) = \frac{\bar{N}_j}{V}
+                    \mathcal{P}(M|\boldsymbol{\psi_j}, \boldsymbol{w}) = $ <span>$\frac{\bar{N}_j}{V} \sum_{i}^{N} \alpha_{ij}
+                    \mathcal{N}(\mu_{ij},\sigma_{ij})$</span></p>
+                <p>$\langle N_{\text{halo}}\rangle_j = \bar{N}_j$ is Poisson</p>
+                <p style="padding-top: 1em">$N_j\curvearrowleft P(\lambda_j = \bar{N}_j)$ <span
+                        class="fragment"> &xrarr; $\{M_j\} \curvearrowleft \sum_{i}^{N} \alpha_{ij} \mathcal{N}(\mu_{ij},\sigma_{ij})$</span>
+                </p>
             </section>
         </section>
     </div>
