@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Fast halo mocks with NPE</title>
+    <meta name="description" content="Euclid flash talk">
+    <meta name="author" content="Simon Ding">
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/white.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+    <style>
+        .fancy_img {
+            box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+            border-radius: 17px;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-transition="none" data-background-image="assets/euclid_mock.png" data-background-size="1200 700"
+                 style="position: relative">
+            <div data-transition="none"
+                 style="background-color: white; position: relative; right: 200px; top: 600px; width: 1600px; height: 200px; display: flex; justify-content: center">
+                <img src="assets/EC_logos_official_Blue_with_text.png"
+                     style="display:inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/iap.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/aquila.jpg" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/sorbonne_logo.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/stockholm-university.png"
+                     style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+            </div>
+            <div data-transition="none" style="position: relative; bottom:100px">
+                <div style="border-radius: 15px 80px; background: #ddefef; text-align: center">
+                    <h2>Fast realistic, differentiable, <br> mock halo generation</h2>
+                    <h4>for wide-field galaxy surveys</h4>
+                </div>
+                <div data-transition="none" style="padding: 10px"></div>
+                <div data-transition="none" style="border-radius: 15px; background: #ddefef; text-align: center">
+                    <p><b>Simon Ding, PhD student @ IAP, France</b></p>
+                    <p style="font-size:70%;">supervised by <b>Guilhem Lavaux (IAP) & Jens Jasche (Stockholm
+                        University)</b>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none">
+            <h4>Bayesian Origin Reconstruction from Galaxies (BORG)</h4>
+            <div data-transition="none" class="r-stack">
+                <div class="fragment fade-out" data-fragment-index="1"
+                     style="background-color: white; width:300px;height:302px; position: relative; right: -430px; bottom: 19px"></div>
+                <div class="fragment fade-out" data-fragment-index="2"
+                     style="background-color: white; width:230px;height:300px; position: relative; right: 470px; bottom: 18px"></div>
+                <div class="fragment fade-out" data-fragment-index="3"
+                     style="background-color: white; width:205px;height:311px; position: relative; right: 255px; bottom: 18px"></div>
+                <div class="fragment fade-out" data-fragment-index="4"
+                     style="background-color: white; width:207px;height:300px; position: relative; right: 50px; bottom: 18px"></div>
+                <div class="fragment fade-out" data-fragment-index="5"
+                     style="background-color: white; width:208px;height:311px; position: relative; left: 171px; bottom: 18px"></div>
+                <div class="fragment fade-out" data-fragment-index="6"
+                     style="background-color: white; width:30px;height:30px; position: relative; right:40px; bottom: 180px"></div>
+                <div class="fragment fade-out" data-fragment-index="6"
+                     style="background-color: white; width:30px;height:30px; position: relative; right:455px; bottom: 180px"></div>
+                <div class="fragment fade-out" data-fragment-index="6"
+                     style="background-color: white; width:740px;height:150px; position: relative; right:200px; bottom: 247px"></div>
+
+                <div class="fragment fade-out"
+                     style="background-color: white; width:400px;height:150px; position: relative; left:370px; bottom: 245px"></div>
+                <div>
+                    <img src="assets/borg.png">
+                    <p class="fragment" style="color:#8e8e8e; font-size:47%; padding-top: 2em; text-align: left">
+                        Jasche & Wandelt (2013),
+                        Jasche, Leclercq & Wandelt (2015),
+                        Lavaux & Jasche (2016),
+                        Jasche & Lavaux (2019)
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Image credit: D.K Ramanah
+                    </p>
+                </div>
+                <p class="fragment"
+                   style="color: #1d7627; transform: rotate(-20deg); background-color: #e4e8ec; border-radius: 15px; position: relative; right: 160px; bottom: 35px">
+                    <b>My work</b></p>
+                <p class="fragment"
+                   style="color: #1d7627; position: relative; top: 180px; right: 120px; font-size: 80%">
+                    $\delta_m(x) \rightarrow n_{\text{halo}}\big(M|\delta_m(x)\big)$
+                </p>
+            </div>
+            <aside class="notes">
+                <p>Work in field-level inference from LSS surveys</p>
+                <p>Want to constrain initial conditions + cosmological parameters</p>
+                <p>A natural byproduct are forward models</p>
+                <p>Stress that we are not modeling on power spectrum level</p>
+            </aside>
+        </section>
+        <section>
+            <h4 style="position: relative; bottom: 0px">Mock halo catalogues from <br> Neural Physical Engines (NPE) </h4>
+            <div style="position: relative;">
+                <div class="fragment" data-fragment-index="0"
+                     style="background-color: #e4e8ec; width: 330px; border-radius: 15px; display: inline-block; vertical-align: middle">
+                    <b>dark matter <br> over-density field</b>
+                </div>
+                <div class="fragment" data-fragment-index="1"
+                     style="font-size:1em; display: inline-block; vertical-align: middle"><b>&xrarr;</b></div>
+                <div class="fragment" data-fragment-index="1"
+                     style="background-color: #e4e8ec; border-radius: 15px; width: 400px; display: inline-block; vertical-align: middle">
+                    <b>machine learning</b> <br>
+                    + <br>
+                    <b>physical contraints</b>
+                </div>
+                <div class="fragment" data-fragment-index="2"
+                     style="font-size:1em; display: inline-block; vertical-align: middle"><b>&xrarr;</b></div>
+                <div class="fragment" data-fragment-index="2"
+                     style="background-color: #e4e8ec; border-radius: 15px; width: 300px; display: inline-block; vertical-align: middle">
+                    <b>Nbody-like <br> halo catalogues</b>
+                </div>
+            </div>
+            <div style="position: relative;">
+                <div class="fragment" data-fragment-index="0"
+                     style="display: inline-block; vertical-align: middle; width: 330px; text-align: left">
+                    <p>From approximate gravity solvers <br> i.e. 2LPT</p>
+                </div>
+                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b>
+                </div>
+                <div class="fragment" data-fragment-index="1"
+                     style="width: 400px; display: inline-block; vertical-align: middle">
+                    <ul style="font-size: 90%">
+                        <li>fast (GPU support)</li>
+                        <li>differentiable</li>
+                        <li>Stochastic</li>
+                        <li>Explainable</li>
+                        <li>17-32 parameters</li>
+                    </ul>
+                </div>
+                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b>
+                </div>
+                <div class="fragment" data-fragment-index="2"
+                     style="text-align: left; width: 300px; display: inline-block; vertical-align: middle">
+                    <p>Validated using:</p>
+                    <ul style="font-size: 90%">
+                        <li>Halo mass function</li>
+                        <li>Power spectrum</li>
+                        <li>Bispectrum</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fragment" data-fragment-index="3"
+                 style="color:#8e8e8e; font-size:50%; padding-top: 0em; position: relative; top: 30px; text-align: left">
+                See Charnock et al. (2020) - arXiv:1909.06379
+            </div>
+            <aside class="notes">
+                <p>Generate mock halo catalogues from overdensity fields</p>
+                <p>Use flexible model constraint by physics and ML techniques</p>
+                <p>Interpretable -> ONLY 17 parameters</p>
+            </aside>
+        </section>
+        <section>
+<!--            <section>-->
+<!--                <img class="fancy_img" src="assets/new_results.gif" height="650">-->
+<!--            </section>-->
+                        <section>
+                            <img class="fancy_img" src="assets/compare_000.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_001.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_002.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_003.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_004.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_005.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_006.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_007.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_008.png" height="650">
+                        </section>
+                        <section>
+                            <img class="fancy_img" src="assets/compare_009.png" height="650">
+                        </section>
+            <section>
+                <img class="fancy_img" src="local_assets/powerspectrum.svg" height="650">
+                <div
+                     style="color:#8e8e8e; font-size:50%; padding-top: 0em; position: relative; top: -60px; text-align: left">
+                    S. Ding et al. (in prep.)
+                </div>
+            </section>
+            <section>
+                <img class="fancy_img" src="local_assets/bispectrum.svg" height="650">
+                <div
+                        style="color:#8e8e8e; font-size:50%; padding-top: 0em; position: relative; top: -60px; text-align: left">
+                    S. Ding et al. (in prep.)
+                </div>
+            </section>
+            <section>
+                <img class="fancy_img" src="local_assets/kernel_weights.svg" height="650">
+                <div
+                        style="color:#8e8e8e; font-size:50%; padding-top: 0em; position: relative; top: -60px; text-align: left">
+                    S. Ding et al. (in prep.)
+                </div>
+            </section>
+        </section>
+        <section>
+            <div style="position: relative;">
+                <div
+                     style="background-color: #e4e8ec; width: 330px; border-radius: 15px; display: inline-block; vertical-align: middle">
+                    <b>dark matter <br> over-density field</b>
+                </div>
+                <div
+                     style="font-size:1em; display: inline-block; vertical-align: middle"><b>&xrarr;</b></div>
+                <div
+                     style="background-color: #e4e8ec; border-radius: 15px; width: 400px; display: inline-block; vertical-align: middle">
+                    <b>Neural Physical Engine</b>
+                </div>
+                <div
+                     style="font-size:1em; display: inline-block; vertical-align: middle"><b>&xrarr;</b></div>
+                <div
+                     style="background-color: #e4e8ec; border-radius: 15px; width: 300px; display: inline-block; vertical-align: middle">
+                    <b>Nbody-like <br> halo catalogues</b>
+                </div>
+            </div>
+            <div style="position: relative;">
+                <div
+                     style="display: inline-block; vertical-align: middle; width: 330px; text-align: left">
+                    <p>From approximate gravity solvers <br> i.e. 2LPT</p>
+                </div>
+                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b>
+                </div>
+                <div
+                     style="width: 400px; display: inline-block; vertical-align: middle">
+                    <ul style="font-size: 90%">
+                        <li>fast (GPU support)</li>
+                        <li>differentiable</li>
+                        <li>Stochastic</li>
+                        <li>Explainable</li>
+                        <li>17-32 parameters</li>
+                    </ul>
+                </div>
+                <div style="font-size:1em; display: inline-block; vertical-align: middle"><b style="visibility: hidden">&xrarr;</b>
+                </div>
+                <div
+                     style="text-align: left; width: 300px; display: inline-block; vertical-align: middle">
+                    <p>Validated using:</p>
+                    <ul style="font-size: 90%">
+                        <li>Halo mass function</li>
+                        <li>Power spectrum</li>
+                        <li>Bispectrum</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                 style="font-size:90%; padding-top: 1.2em; position: relative; top: 30px; text-align: left">
+                Happy to chat in person, Slack or via <a href="mailto:simon.ding@iap.fr">simon.ding@iap.fr</a>
+                <br> I'm looking for a postdoctoral position starting <b>January 2025</b>!
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1200,
+        height: 700,
+
+        slideNumber: false,
+        controls: false,
+        backgroundTransition: "none",
+
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3]
+    });
+</script>
+</body>
+</html>
