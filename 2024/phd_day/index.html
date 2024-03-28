@@ -98,41 +98,54 @@
                     <li class="fragment">atmospheric parameters of exoplanets</li>
                     <li class="fragment">...</li>
                 </ul>
-                <div class="r-frame fragment">
+                <div class="r-frame fragment" data-id="frame">
                     \[ P(\theta|\text{data}) = \frac{P(\text{data}|\theta)P(\theta)}{P(\text{data})} \qquad \text{data}
                     = \text{Model}(\theta) + \text{noise}\]
                 </div>
             </section>
-            <section data-auto-animate>
+            <section data-auto-animate data-transition="fade-out">
                 <h2>Bayesian inference</h2>
                 <ul>
                     <li>cosmological parameters</li>
                     <li>galaxy formation and evolution</li>
-                    <li style="visibility: hidden">$ \delta_m(x) \rightarrow \delta_{g}(x)$ Galaxy bias model</li>
+                    <li style="visibility: hidden">$\delta_m(x) \rightarrow \delta_{g}(x)$ Galaxy bias model</li>
                 </ul>
-                <div class="r-frame">
+                <div class="r-frame" data-id="frame">
                     \[ P(\theta|\text{data}) = \frac{P(\text{data}|\theta)P(\theta)}{P(\text{data})} \qquad \text{data}
                     = \text{Model}(\theta) + \text{noise}\]
                 </div>
+                <p style="padding-top: 1em; visibility: hidden">How to choose $P(\theta)$?</p>
             </section>
-            <section data-auto-animate>
+            <section data-auto-animate data-transition="fade-in fade-out">
                 <h2>Bayesian inference</h2>
                 <ul>
                     <li>cosmological parameters</li>
-                    <li>$ \delta_m(x) \rightarrow \delta_{g}(x)$ <span class="fragment" style="color: #FFD369">Galaxy bias model</span>
-                    </li>
-                    <li style="visibility: hidden">place holder</li>
+                    <li>dark matter $\rightarrow$ galaxies <span style="visibility: hidden">$\delta_m(x)$</span></li>
+                    <li style="visibility: hidden">$\delta_m(x) \rightarrow \delta_{g}(x)$ Galaxy bias model</li>
                 </ul>
-                <div class="r-frame">
+                <div class="r-frame" data-id="frame">
                     \[ P(\theta|\text{data}) = \frac{P(\text{data}|\theta)P(\theta)}{P(\text{data})} \qquad \text{data}
                     = \text{Model}(\theta) + \text{noise}\]
                 </div>
-                <p class="fragment" style="padding-top: 1em">How to choose $P(\theta)$?</p>
+                <p style="padding-top: 1em; visibility: hidden">How to choose $P(\theta)$?</p>
+            </section>
+            <section data-auto-animate data-transition="fade-in slide-out">
+                <h2>Bayesian inference</h2>
+                <ul>
+                    <li>cosmological parameters</li>
+                    <li>$\delta_m(x) \rightarrow \delta_{g}(x)$ <span class="fragment" style="color: #FFD369">Galaxy bias model</span></li>
+                    <li style="visibility: hidden">Some placeholder here</li>
+                </ul>
+                <div class="r-frame" data-id="frame">
+                    \[ P(\theta|\text{data}) = \frac{P(\text{data}|\theta)P(\theta)}{P(\text{data})} \qquad \text{data}
+                    = \text{Model}(\theta) + \text{noise}\]
+                </div>
+                <p style="padding-top: 1em" class="fragment">How to choose $P(\theta)$?</p>
             </section>
             <section data-auto-animate>
-                <h2 data-id="title">Bayesian inference</h2>
+                <h2 style="padding-bottom: 2em">Bayesian inference</h2>
                 <p>How to choose $P(\theta)$?</p>
-                <ol type="1">
+                <ol type="1" style="padding-bottom: 3.8em">
                     <li class="fragment">Wide uniform prior</li>
                     <li class="fragment">Physical prior</li>
                     <li class="fragment">Hand-tuned prior</li>
@@ -148,17 +161,20 @@
             <section data-auto-animate>
                 <h3 style="position: relative; bottom: 1em">physics informed priors from simulations</h3>
                 <div class="r-stack">
-                    <p  style="padding-top: 3em; padding-bottom: 3em; visibility: hidden"></p>
+                    <p  style="padding-top: 1em; padding-bottom: 2em; visibility: hidden"></p>
                     <p class="fragment fade-out" data-fragment-index="0">Galaxy bias model: $\,\delta_m(x) \rightarrow
                         \delta_g(x)$</p>
                     <p class="fragment current-visible" data-fragment-index="0">Galaxy bias model: $\,\delta_g(x) = b_1
                         \delta_m(x)$</p>
                     <p class="fragment fade_in" data-fragment-index="1">Galaxy bias model: $\,\delta_m(x) \rightarrow
                         \delta_g(x)$</p>
-                    <div style="visibility: hidden; padding-top: 4.6em"></div>
+                    <div style="visibility: hidden; padding-top: 4.2em">s</div>
                 </div>
-                <img style="position: absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; top: 10px;"
-                     class="fragment fade-in-then-out fancy_img" data-fragment-index="1" src="assets/pinetree_pipeline.png">
+                <div style="display: flex">
+                    <img style="position: absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; top: 0px;"
+                         class="fragment fade-in-then-out fancy_img" data-fragment-index="1" src="assets/pinetree_pipeline.png">
+                    <p class="fragment fade-in-then-out" data-fragment-index="1" style="position: relative; top:150px; font-size: 50%; left: 120px">Ding et al. (in prep, 2024)</p>
+                </div>
                 <p class="fragment">&rArr; Use $N-$body simulations as guidance</p>
             </section>
             <section data-auto-animate>
@@ -168,12 +184,12 @@
                     <img class="fancy_img fragment" data-fragment-index="0"style="position: relative; right: 200px" src="assets/quijote_pk_m.svg" height="300">
                     <span class="fragment" data-fragment-index="2" style="position: relative; right: 177px">$$\div$$</span>
                     <img class="fancy_img" style="position: relative; right: 150px;" src="assets/quijote_dg.svg" height="300">
-                    <img class="fancy_img fragment" data-fragment-index="1"style="position: relative; right: 425px" src="assets/quijote_pk_g.svg" height="300">
+                    <img class="fancy_img fragment" data-fragment-index="1"style="position: relative; right: 435px" src="assets/quijote_pk_g.svg" height="300">
                     <span class="fragment" data-fragment-index="2" style="position: relative; right: 407px">$$=$$</span>
                     <img class="fancy_img fragment" data-fragment-index="2" style="position: relative; right: 380px;" src="assets/quijote_ratios.svg" height="300">
                     <img class="fancy_img fragment" data-fragment-index="3" style="position: relative; right: 684px;" src="assets/quijote_ratios_weird.svg" height="300">
                 </div>
-                <p class="fragment">&rArr; New constraint from simulations <span style="color: #FFD369">$r = \frac{P_m(k)}{P_g(k)}$</span></p>
+                <p class="fragment" style="padding-top: 1em; padding-bottom: 0.8em">&rArr; New constraint from simulations <span style="color: #FFD369">$r = \frac{P_m(k)}{P_g(k)}$</span></p>
             </section>
             <section data-auto-animate>
                 <h3>physics informed priors from simulations</h3>
@@ -270,7 +286,7 @@
         <section>
             <h2>Bayesian inference</h2>
             <h2 style="margin-top: -23px">with physics informed priors</h2>
-            <p style="font-size:120%; padding-bottom: 1em">using ROBIN-PiP</p>
+            <p style="font-size:120%; padding-bottom: 1em">using <span style="color: #FFD369">ROBIN-PiP</span></p>
             <p class="fragment" style="text-align: left">&bull; Principled way of incorporating simulations into
                 inference</p>
             <p class="fragment" style="text-align: left">&bull; Model agnostic</p>
