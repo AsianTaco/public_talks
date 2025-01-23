@@ -154,7 +154,10 @@
                 <p class="fragment">&Rightarrow; Solve for $P(\theta|\text{data})$</p>
             </section>
             <section data-transition="slide-in none-out">
-                <img class="fancy_img" src="assets/example_setup_2.jpg" height="600">
+                <div class="r-stack">
+                    <p class="fragment fade-out" data-fragment-index="0" style="font-size: 1.2em; font-weight: bold">Bayesian Inference &mdash; An example</p>
+                    <img class="fancy_img fragment" data-fragment-index="0" src="assets/example_setup_2.jpg" height="600">
+                </div>
             </section>
             <section data-transition="none">
                 <video style="border-radius: 15px" data-autoplay src="assets/noisy_obs.mp4" height="450"></video>
@@ -164,14 +167,15 @@
                 <ul style="padding-bottom: 20px">
                     <li class="fragment" data-fragment-index="0">Recorded light intensity at different times $I(t_{\text{obs}})$</li>
                     <li class="fragment" data-fragment-index="1">Theoretical model: <span class="fragment custom highlight-darkblue" data-fragment-index="6">$I'(t)\,$</span>$=\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$A$</span>$\,\sin(2\pi$<span class="fragment custom highlight-yellow" data-fragment-index="4">$f$</span>$t +\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$\phi$</span>$)+\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$B$</span>$\,+\,n$</li>
-                    <li class="fragment" data-fragment-index="2">Simple additive Gaussian noise &Rightarrow; $P(\text{data}|\theta)=\,$<span class="fragment custom highlight-darkred" data-fragment-index="9">$\mathcal{N}((I' - I), \sigma^2)$</span></li>
+                    <li class="fragment" data-fragment-index="2">Simple additive Gaussian noise &Rightarrow; $P(\text{data}|\theta,\eta)=\,$<span class="fragment custom highlight-darkred" data-fragment-index="9">$\mathcal{N}((I' - I), \sigma^2)$</span></li>
                 </ul>
                 <div class="r-frame fragment" data-fragment-index="3">
-                    <p class="fragment" data-fragment-index="3" style="display: inline-block; width: 45%">Target parameters <span class="fragment custom highlight-yellow" data-fragment-index="4">$\theta$</span></p>
+                    <p class="fragment" data-fragment-index="3" style="display: inline-block; width: 45%; vertical-align: middle"><span class="fragment custom highlight-yellow" data-fragment-index="4">Target&nbsp;</span>& nuisance
+                        <br> parameters <span class="fragment custom highlight-yellow" data-fragment-index="4">$\theta$</span>$\,+\,$<span>$\eta$</span></p>
                     <p class="fragment" data-fragment-index="5" style="display: inline-block">&xrarr;</p>
-                    <p class="fragment" data-fragment-index="5" style="display: inline-block; width: 45%; vertical-align: middle">Make prediction <span class="fragment custom highlight-darkblue" data-fragment-index="6">$\text{data}' = \text{Model}(\theta)$</span></p>
+                    <p class="fragment" data-fragment-index="5" style="display: inline-block; width: 45%; vertical-align: middle">Make prediction <span class="fragment custom highlight-darkblue" data-fragment-index="6">$\text{data}' = \text{Model}(\theta,\eta)$</span></p>
                     <p class="fragment" data-fragment-index="10" style="display: inline-block; rotate: 225deg; position: relative; bottom: 55px; left: 45px">&xrarr;</p>
-                    <p class="fragment" data-fragment-index="7" style="display: inline-block; width: 33%; vertical-align: middle">Compare to data <br> with <span class="fragment custom highlight-darkred" data-fragment-index="9">$P(\text{data}|\theta)$</span></p>
+                    <p class="fragment" data-fragment-index="7" style="display: inline-block; width: 33%; vertical-align: middle">Compare to data <br> with <span class="fragment custom highlight-darkred" data-fragment-index="9">$P(\text{data}|\theta,\eta)$</span></p>
                     <p class="fragment" data-fragment-index="7" style="display: inline-block; rotate: 135deg; position: relative; bottom: 55px; right: 45px">&xrarr;</p>
                 </div>
             </section>
@@ -180,7 +184,19 @@
                 <img class="fancy_img" src="assets/noisy_params.svg">
             </section>
             <section>
-                <p>Intermediate summary slide for the introduction</p>
+                <ul style="list-style-type: '&raquo;&nbsp'; padding-bottom: 1em; padding-top: 0.5em">
+                    <li class="fragment" style="padding-bottom: 0.3em">Our understanding of the Universe is encoded in <br> our theoretical models and its parameters</li>
+                    <li class="fragment">We may gain new insights by inferring the values <br> of these cosmological parameters through observations</li>
+                </ul>
+                <div class="r-frame fragment">
+                    <p style="display: inline-block; width: 45%"><span class="yellow_text">Inferred</span> parameters $\theta$</p>
+                    <p style="display: inline-block">&xrarr;</p>
+                    <p style="display: inline-block; width: 45%; vertical-align: middle">Cosmological <span class="yellow_text">model</span>
+                        <br> e.g. $\Lambda$CDM$(\theta)$ </span></p>
+                    <p style="display: inline-block; rotate: 225deg; position: relative; bottom: 65px; left: 45px">&xrarr;</p>
+                    <p style="display: inline-block; width: 33%; vertical-align: middle">Observational <span class="yellow_text">data</span> <br> e.g. galaxy surveys</p>
+                    <p style="display: inline-block; rotate: 135deg; position: relative; bottom: 65px; right: 45px">&xrarr;</p>
+                </div>
             </section>
 
         </section>
