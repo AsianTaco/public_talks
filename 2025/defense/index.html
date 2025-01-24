@@ -107,9 +107,10 @@
                     <div>
                         <p style="font-size: 1.2em; font-weight: bold"><span class="yellow_text">Data</span> in Cosmology</p>
                         <ul>
-                            <li class="fragment" data-fragment-index="0"><span class="fragment custom highlight-yellow" data-fragment-index="5">Galaxy clustering</span><span class="fragment fade-out" data-fragment-index="6"> & lensing</span></li>
-                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="1">Supernovae</li></span>
-                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="2">Voids</li></span>
+                            <li class="fragment" data-fragment-index="0"><span class="fragment custom highlight-yellow" data-fragment-index="5">Galaxy clustering</span></li>
+                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="1">Galaxy lensing</li></span>
+                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="2">Cosmic Microwave Background</li></span>
+                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="3">Voids</li></span>
                             <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="3">$\dots$</li></span>
                         </ul>
                     </div>
@@ -121,7 +122,8 @@
                     </iframe>
                 </div>
                 <aside class="notes">
-                    <p>Quasars, Lyman alpha</p>
+                    <p><b>CMB</b>: Snapshot of the early universe</p>
+                    <p>Supernovae, quasars, Lyman alpha</p>
                 </aside>
             </section>
             <section>
@@ -131,7 +133,6 @@
                         <p data-fragment-index="0" class="fragment" style="font-weight: bold">The current concordance model is called <span style="color: #FFD369FF">$\Lambda$CMD</span></p>
                     </div>
                     <img data-fragment-index="2" class="fancy_img fragment fade-in-then-out" src="assets/universe_hist.jpg" height="600">
-                    <img class="fancy_img fragment" src="assets/cosmic_content_simplified.jpg" height="600">
                 </div>
             </section>
             <section data-auto-animate>
@@ -207,14 +208,20 @@
             </section>
             <section data-auto-animate>
                 <h1 style="display: inline-block">Advancing&nbsp;</h1><h1 style="display: inline-block">cosmological&nbsp;</h1><h1 style="display: inline-block">inference</h1>
-                <p class="fragment" style="padding-top: 1.1em">$\Lambda$CDM is great <b>but</b>, many <span class="yellow_text">central questions remain open</span>:</p>
-                <ul style="padding-left: 40px;">
-                    <li class="fragment">Nature of dark matter & dark energy</li>
-                    <li class="fragment">Modified gravity</li>
-                    <li class="fragment">Properties of the primordial universe</li>
-                    <li class="fragment">...</li>
-                </ul>
-                <p class="fragment">&Rightarrow; Need for <span class="yellow_text">robust</span> and <span class="yellow_text">improved</span> parameter constraints</p>
+                <div class="r-stack">
+                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="0" src="assets/cosmic_content_simplified.jpg" height="500">
+                    <div>
+                        <p class="fragment" data-fragment-index="1" style="padding-top: 1.1em">$\Lambda$CDM is great <b>but</b>, many <span class="yellow_text">central questions remain open</span>:</p>
+                        <ul style="padding-left: 40px;">
+                            <li class="fragment">Nature of dark matter & dark energy</li>
+                            <li class="fragment">Modified gravity</li>
+                            <li class="fragment">...</li>
+                        </ul>
+                        <p class="fragment" style="padding-top: 0.4em">&Rightarrow; Need for <span class="yellow_text">robust</span> and <span class="yellow_text">improved</span> parameter constraints</p>
+                    </div>
+                    <p class="fragment" data-fragment-index="1" style="text-align: left; position: relative; right: 250px; top: 269px; font-size: 70%; color: lightgrey">
+                        e.g. Perivolaropoulos & Skara (2022), Efstathiou (2024)</p>
+                </div>
             </section>
             <section>
                 <p style="font-size: 1.2em">The canonical approach to cosmological inference</p>
@@ -396,34 +403,46 @@
                     Ding, Lavaux, Jasche (2025), in prep.
                 </p>
             </section>
-            <section data-transition="none-out">
+            <section>
                     <h4>Field-Level inference from Galaxy surveys with BORG</h4>
                     <div data-transition="none" class="r-stack" style="position: relative">
                         <div>
                             <img class="fancy_img" src="assets/borg_v2.svg">
                             <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
-                                <div
-                                        style="display: inline; width: 800px; text-align: left">
+                                <div style="display: inline; width: 800px; text-align: left">
                                     Jasche & Wandelt (2013),
                                     Jasche, Leclercq & Wandelt (2015),<br>
                                     Lavaux & Jasche (2016),
                                     Jasche & Lavaux (2019)
                                 </div>
-                                <div
-                                        style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah
+                                <div style="display: inline; position: relative; left: 150px">
+                                    Image design: D.K Ramanah
                                 </div>
                             </div>
                         </div>
-                        <p class="fragment"
-                           style="color: black; transform: rotate(-20deg); background-color: #e7e7e7; border-radius: 5px; position: relative; right: 160px; bottom: 42px">
+                        <p class="fragment" data-fragment-index="0"
+                           style="color: black; transform: rotate(-20deg); background-color: #e7e7e7; border-radius: 8px; position: relative; right: 160px; bottom: 42px">
                             &nbsp;Bias model&nbsp;</p>
-                        <p class="fragment"
-                           style="color: #FFD369; position: relative; top: 197px; right: 135px; font-size: 80%">
-                            $\delta_m(x) \rightarrow n\big(M|\delta_m(x)\big)$
+                        <p
+                           style="position: relative; top: 197px; right: 135px; font-size: 80%">
+                            <span class="fragment" data-fragment-index="2">Modelling &nbsp;</span><span class="fragment yellow_text" data-fragment-index="1">$\delta_m(x) \rightarrow n\big(M|\delta_m(x)\big)$</span><span class="fragment" data-fragment-index="2">&nbsp;is challenging!</span>
                         </p>
                     </div>
+                <aside class="notes">
+                    <p>Bias modelling essential and challenging</p>
+                </aside>
             </section>
-            <section data-transition="none-in">
+            <section>
+                <div class="r-stack">
+                    <div class="fragment fade-out" data-fragment-index="1"
+                         style="background-color: white; width:230px;height:70px; position: relative; right: 190px; bottom: 140px"></div>
+                    <div class="fragment fade-out" data-fragment-index=1"
+                         style="background-color: white; width:550px;height:500px; position: relative; left: 185px;"></div>
+                    <img class="fancy_img" src="assets/cosmic_content.jpg" height="550">
+                </div>
+                <p class="fragment">&rArr; Simplify to <span class="yellow_text">"dark matter only"</span> universe <span class="fragment">(for now)</span></p>
+            </section>
+            <section>
                 <h4>Field-Level inference from Galaxy surveys with BORG</h4>
                 <div data-transition="none" class="r-stack" style="position: relative">
                     <div>
@@ -441,10 +460,18 @@
                             </div>
                         </div>
                     </div>
-                    <p style="color: #FFD369; position: relative; top: 197px; right: 135px; font-size: 80%">
-                        $\delta_m(x) \rightarrow n\big(M|\delta_m(x)\big)$
+                    <p class="fragment" style="position: relative; top: 197px; right: 135px; font-size: 80%">
+                        Consider only dark matter:&nbsp; <span class="yellow_text">$\delta_{\rm m}(x) \rightarrow n_{\rm h}\big(M|\delta_{\rm m}(x)\big)$</span>
                     </p>
                 </div>
+            </section>
+            <section>
+                <p style="font-size: 1.2em; text-align: left"><b>Benchmark new model</b></p>
+                <ul style="padding-top: 0.3em">
+                    <li class="fragment">Train as traditional neural network</li>
+                    <li class="fragment">Compare model predictions against $N$-body simulations</li>
+                    <li class="fragment">Optimise computational efficiency</li>
+                </ul>
             </section>
             <section>
                 <h3>A physics-informed neural bias model</h3>
@@ -515,7 +542,7 @@
                         </div>
                         <div class="fragment" data-fragment-index="6"
                              style="font-size: 80%; position: relative; left:55px; transform: rotate(-15deg); color: black">
-                            &bullet; Model non-linearity
+                            &bullet; Model non-linearity <br> &nbsp; (Mixture Density Network)
                         </div>
                         <div class="fragment" data-fragment-index="8"
                              style="font-size: 80%; position: relative; bottom: 50px; left:380px; transform: rotate(-15deg); color: black">
@@ -528,19 +555,19 @@
                         <img class="fragment" data-fragment-index="4" src="assets/monopole_kernel.png"
                              height="200"
                              style="display: inline; vertical-align: middle"></span>
-                            <span class="fragment" data-fragment-index="7">&rArr;<img src="assets/mdn.png" height="200"
+                            <span class="fragment" data-fragment-index="7">&rArr;<img src="assets/mdn_v2.svg" height="200"
                                                                                       style="display: inline; vertical-align: middle"></span>
                             <span class="fragment" data-fragment-index="9">&rArr;<img src="assets/sampling.png"
                                                                                       width="300"
                                                                                       style="display: inline; vertical-align: middle"></span>
                         </p>
                         <p style="color: black"><span class="fragment highlight-current-red" data-fragment-index="0"
-                                 style="position: relative; right: 50px">$\delta_m(x)$ &rarr; </span>
+                                 style="position: relative; right: 50px">$\delta_{\rm m}(x)$ &rarr; </span>
                             <span class="fragment" data-fragment-index="4" style="position: relative; right: 23px"><b>Convolve</b> &rarr;</span>
                             <span class="fragment" data-fragment-index="7"><b>Transform</b> &rarr;</span>
                             <span class="fragment" data-fragment-index="9" style="position: relative; left: 20px"><b>Sample</b> &rarr;</span>
                             <span class="fragment highlight-current-red" data-fragment-index="1"
-                                  style="position: relative; left: 55px">$n\big(M|\delta_m(x)\big)$</span>
+                                  style="position: relative; left: 55px">$n_{\rm h}\big(M|\delta_{\rm m}(x)\big)$</span>
                         </p>
                     </div>
                     <img class="fragment current-visible" data-fragment-index="5"
@@ -549,60 +576,86 @@
                 </div>
             </section>
             <section>
-                <p style="font-size: 1.2em; text-align: left"><b>Benchmark model as mock generator</b></p>
+                <p style="font-size: 1.2em; text-align: left"><b>Benchmark &mdash; Setup</b></p>
                 <ul>
-                    <li class="fragment">Optimize using <b>Poisson likelihood</b></li>
+                    <li class="fragment">Optimise using <span class="yellow_text">Poisson likelihood</span></li>
                     <li class="fragment">10 halo catalogues at $z=\{ 0, 1 \}$ from <b>L-Gadget</b> + <b>rockstar</b></li>
-                    <li class="fragment">Corresponding <b>2LPT</b> over-density fields</li>
-                    <li class="fragment">$L = 500h^{-1}\,\rm{Mpc}$</li>
-                    <li class="fragment">$M_{\rm{vir}} > 2 \times 10^{12}\,M_{\odot}$</li>
-                    <li class="fragment">Validate on <b>unseen</b> simulations</li>
+                    <li class="fragment">Corresponding <span class="yellow_text">2LPT</span> overdensity fields</li>
+                    <li class="fragment">$L_{\rm box} = 500\,h^{-1}\rm{Mpc}$</li>
+                    <li class="fragment">$M_{\rm{vir}} > 2 \times 10^{12}\,h^{-1}M_{\odot}$</li>
+                    <li class="fragment">Validate on <span class="yellow_text">unseen</span> simulations</li>
                 </ul>
             </section>
             <section>
                 <img class="fancy_img" src="assets/best_fit_overfiew.png" width="1896">
             </section>
             <section>
-                <img class="fancy_img" src="assets/conditional_hmf.png" height="650">
+                <div style="display: inline-block">
+                    <p style="font-size: 90%">Conditional halo mass function</p>
+                    <img class="fancy_img" src="assets/conditional_hmf.png" height="510">
+                </div>
+                <div style="display: inline-block">
+                    <p style="font-size: 90%">Cross-correlation coefficient</p>
+                    <img class="fancy_img" src="assets/cross-correlation.png" height="510">
+                </div>
             </section>
             <section>
-                <img class="fancy_img" src="assets/cross-correlation.png" height="650">
-            </section>
-            <section>
-                <b style="font-size: 120%">On model interpretability</b>
-            </section>
-            <section>
+                <p style="font-size: 120%; text-align: left; padding-bottom: 0.3em"><b>On model interpretability</b> &mdash; kernel weights</p>
                 <img class="fancy_img" src="assets/kernel_weights.svg" width="1200">
+                <p style="text-align: left; font-size: 70%; color: lightgrey; padding-top: 0.7em">for $L_{\rm voxel} = 7.81\,h^{-1}\rm{Mpc}$</p>
             </section>
 <!--            <section>-->
 <!--                <p>With SPH smoothing instead of CIC</p>-->
 <!--                <img class="fancy_img" src="assets/sph_kernel.svg" height="550">-->
 <!--            </section>-->
             <section>
-                <p style="font-size: 1.2em; text-align: left"><b>Use model as Bayesian neural network</b></p>
-                <ul>
-                    <li class="fragment">Inference on mock data</li>
-                    <li class="fragment">Network parameters are directly sampled</li>
-                </ul>
+                <div class="r-stack">
+                    <img class="fancy_img fragment fade-out" data-fragment-index="0" src="assets/pt_inference_schematic.svg">
+                    <div>
+                        <p class="fragment" data-fragment-index="0" style="font-size: 1.2em"><b>$\texttt{PineTree}$ as Bayesian neural network</b></p>
+                        <ul style="padding-top: 0.3em">
+                            <li class="fragment">Test inference on mock data</li>
+                            <li class="fragment">Network parameters are directly sampled</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             <section>
-                <img class="fancy_img" src="assets/pinetree_inference_v1.svg">
+                <div class="r-stack">
+                    <p style="position: relative; right: 420px; text-align: left;">Parameter samples:</p>
+                    <img style="position: relative; left: 30px;" class="fancy_img" src="assets/fixed_ics_v1.svg" height="650">
+                    <p style="position: relative; left: 400px;" class="fragment">What went <br> wrong?</p>
+                </div>
             </section>
-            <section>
-                <p style="font-size: 1.2em; text-align: left"><b>What went wrong?</b></p>
+            <section data-auto-animate>
+                <p style="font-size: 1.2em; text-align: left">Common issues &mdash; <b>Bayesian Neural networks</b></p>
+                <div style="width: 100%; height: 500px; text-align: left; padding-top: 0.3em">
+                    <ul style="padding-bottom: 1em; padding-left: 60px; text-align: left">
+                        <li class="fragment">Scaling degeneracies</li>
+                        <li class="fragment" style="list-style-type: none; padding-top: 0.3em">e.g.&nbsp; $x_{i} = f(x_{i-1}) = \omega_{i}x_{i-1} + b_i$</li>
+                        <li class="fragment" style="list-style-type: none; padding-top: 0.3em">
+                            Re-parameterise: &nbsp; $\tilde{\omega}_{i} = \frac{1}{\kappa} \omega_{i}, \tilde{\omega}_{i-1} = \kappa \omega_{i-1},$ and $\tilde{b}_{i-1} = \kappa b_{i-1}$
+                        </li>
+                    </ul>
+                    <p style="text-align: center;">&rArr; Yields <span class="yellow_text">equivalent output $x_i$</span> for any $\kappa$</p>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <p style="font-size: 1.2em; text-align: left">Common issues &mdash; <b>Bayesian Neural networks</b></p>
+                <div style="width: 100%; height:500px; text-align: left; padding-left: 60px; padding-top: 0.3em">
                 <ul style="padding-bottom: 1em">
-                    <li>Scaling degeneracies: <br>
-                        e.g. <span>$x_{i} = \omega_{i}(x_{i-1}) + b_i = \frac{1}{\kappa} \omega_{i}(\kappa\,x_{i-1}) + b_i$</span></li>
-                    <li>In-proper priors due to activation functions</li>
+                    <li >Scaling degeneracies</li>
+                    <li class="fragment">Improper priors due to activation functions</li>
                 </ul>
-                <p style="width: max-content; margin: auto; padding-left: 13px; padding-right: 13px"  class="r-frame">Degeneracies can be identified & fixed <br> thanks to the reduced parameter space</p>
+                    <p style="width: max-content; margin: auto; padding-left: 13px; padding-right: 13px" class="r-frame fragment">Degeneracies can be identified & fixed <br> thanks to the reduced parameter space</p>
+                </div>
             </section>
             <section>
-                <img class="fancy_img" src="assets/pinetree_inference_v2.svg">
+                <img class="fancy_img" src="assets/fixed_ics_v3.svg" height="650">
             </section>
             <section>
                 <p>Joint inference in $\texttt{BORG}$</p>
-                <img class="fancy_img" src="assets/joint_sampling_power_v3.svg" alt="">
+                <img class="fancy_img" src="assets/joint_sampling_v3.svg" height="400">
             </section>
             <section>
                 <h3 style="padding-bottom: 1em">Intermediate Summary</h3>
