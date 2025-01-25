@@ -629,39 +629,69 @@
             </section>
             <section data-auto-animate>
                 <p style="font-size: 1.2em; text-align: left">Common issues &mdash; <b>Bayesian Neural networks</b></p>
-                <div style="width: 100%; height: 500px; text-align: left; padding-top: 0.3em">
-                    <ul style="padding-bottom: 1em; padding-left: 60px; text-align: left">
+                <div style="width: 100%; height: 510px; text-align: left; padding-top: 0.3em">
+                    <ul style="display: inline-block; padding-bottom: 1em; padding-left: 60px; text-align: left">
                         <li class="fragment">Scaling degeneracies</li>
                         <li class="fragment" style="list-style-type: none; padding-top: 0.3em">e.g.&nbsp; $x_{i} = f(x_{i-1}) = \omega_{i}x_{i-1} + b_i$</li>
                         <li class="fragment" style="list-style-type: none; padding-top: 0.3em">
-                            Re-parameterise: &nbsp; $\tilde{\omega}_{i} = \frac{1}{\kappa} \omega_{i}, \tilde{\omega}_{i-1} = \kappa \omega_{i-1},$ and $\tilde{b}_{i-1} = \kappa b_{i-1}$
+                            Re-parameterise:
                         </li>
                     </ul>
-                    <p style="text-align: center;">&rArr; Yields <span class="yellow_text">equivalent output $x_i$</span> for any $\kappa$</p>
+                    <span class="fragment" style="display:inline-block; position: relative; top:63px; right: 230px">$$\begin{align}
+                            \tilde{\omega}_{i} &= \kappa\, \omega_{i} \\
+                            \tilde{\omega}_{i-1} &= \kappa^{-1}\,\omega_{i-1} \\
+                            \tilde{b}_{i-1} &= \kappa^{-1} b_{i-1}
+                            \end{align}
+                            $$</span>
+                    <p class="fragment" style="text-align: center; padding-top: 1.4em">&rArr; Yields <span class="yellow_text">equivalent output $x_i$</span> for any $\kappa$</p>
                 </div>
             </section>
             <section data-auto-animate>
                 <p style="font-size: 1.2em; text-align: left">Common issues &mdash; <b>Bayesian Neural networks</b></p>
-                <div style="width: 100%; height:500px; text-align: left; padding-left: 60px; padding-top: 0.3em">
-                <ul style="padding-bottom: 1em">
+                <div style="width: 100%; height:510px; text-align: left; padding-top: 0.3em">
+                    <ul style="padding-bottom: 1em; padding-left: 60px; text-align: left">
+                        <li >Scaling degeneracies</li>
+                        <li class="fragment">Improper priors due to activation functions</li>
+                        <li class="fragment" style="list-style-type: none; padding-top: 0.3em">e.g.&nbsp; $u\equiv\text{softplus}(x) = \ln\left( 1  + e^x \right)$ &nbsp;&nbsp; with $P_x(x) = \text{const.}$</li>
+                    </ul>
+                    <p class="fragment" style="text-align: center">
+                        $u$ <span class="yellow_text">not uniformly distributed</span> anymore:
+                        $$
+                            P_u(u) = P_x(x)\left|\frac{\mathrm{d}x}{\mathrm{d}u}\right| = P_x(x) \frac {1}{1 - e^{-u}}
+                            $$</p>
+
+                </div>
+            </section>
+            <section data-auto-animate>
+                <p style="font-size: 1.2em; text-align: left">Common issues &mdash; <b>Bayesian Neural networks</b></p>
+                <div style="width: 100%; height:510px; text-align: left; padding-top: 0.3em">
+                <ul style="padding-bottom: 1em; padding-left: 60px">
                     <li >Scaling degeneracies</li>
-                    <li class="fragment">Improper priors due to activation functions</li>
+                    <li >Improper priors due to activation functions</li>
                 </ul>
+                    <p style="padding-top: 1em;"></p>
                     <p style="width: max-content; margin: auto; padding-left: 13px; padding-right: 13px" class="r-frame fragment">Degeneracies can be identified & fixed <br> thanks to the reduced parameter space</p>
                 </div>
             </section>
             <section>
-                <img class="fancy_img" src="assets/fixed_ics_v3.svg" height="650">
+                <div class="r-stack">
+                    <ul style="position: relative; right: 350px; text-align: left;">
+                        <li>Removed 3 degenerate <br> parameters</li>
+                        <li style="padding-top: 0.3em">Added inverse Jacobian <br> to adjust prior</li>
+                    </ul>
+                    <img style="position: relative; left: 150px;" class="fancy_img" src="assets/fixed_ics_v3.svg" height="700">
+                </div>
+
             </section>
             <section>
-                <p>Joint inference in $\texttt{BORG}$</p>
+                <p>Joint inference in $\texttt{BORG}$ stable</p>
                 <img class="fancy_img" src="assets/joint_sampling_v3.svg" height="400">
             </section>
             <section>
                 <h3 style="padding-bottom: 1em">Intermediate Summary</h3>
                 <p class="fragment" style="text-align: left">&bull; <b>Generative model</b> for <b>LARGE</b>
                     (Euclid-like) volumes</p>
-                <p class="fragment" style="text-align: left">&bull; Differentiable & fast ( ~10min for $3\,h^{-1}\,\mathrm{Gpc}$ box)</p>
+                <p class="fragment" style="text-align: left">&bull; Differentiable & fast ( ~10min to simulate a $3\,h^{-1}\,\mathrm{Gpc}$ box)</p>
                 <p class="fragment" style="text-align: left">&bull; Robust & interpretable model</p>
                 <p class="fragment" style="text-align: left">&bull; Modular GPU-accelerated implementation</p>
                 <p class="fragment" style="text-align: left">&bull; Reduced number of weights
@@ -721,15 +751,15 @@
                     <img class="fancy_img" style="position: relative; right: 150px;" src="assets/quijote_dg.svg"
                          height="300">
                     <img class="fancy_img fragment" data-fragment-index="1" style="position: relative; right: 435px"
-                         src="assets/quijote_pk_g.svg" height="300">
+                         src="assets/quijote_pk_h.svg" height="300">
                     <span class="fragment" data-fragment-index="2" style="position: relative; right: 407px">$$=$$</span>
                     <img class="fancy_img fragment" data-fragment-index="2" style="position: relative; right: 380px;"
                          src="assets/quijote_ratios.svg" height="300">
-                    <img class="fancy_img fragment" data-fragment-index="3" style="position: relative; right: 684px;"
+                    <img class="fancy_img fragment" data-fragment-index="3" style="position: relative; right: 681px;"
                          src="assets/quijote_ratios_weird.svg" height="300">
                 </div>
                 <p class="fragment" data-fragment-index="4" style="padding-top: 1em; padding-bottom: 0.8em">&rArr; New constraint from
-                    simulations <span style="color: #FFD369">$y = \frac{P_m(k)}{P_g(k)}$</span></p>
+                    simulations <span style="color: #FFD369">$y = \frac{P_{\rm m}(k)}{P_{\rm h}(k)}$</span></p>
                 <p class="fragment" data-fragment-index="5" style="text-align: left; font-size: 70%;">Note: Any summary statistic other than power spectrum may be used</p>
             </section>
             <section data-auto-animate>
@@ -789,7 +819,7 @@
                     </p>
                 </div>
             </section>
-            <section>
+<!--            <section>
                 <p><b>ROBIN-PiP $\times$ BORG</b></p>
                 <div style="display: flex; align-items: center">
                     <div class="r-stack" style="position: relative; left: 120px">
@@ -813,7 +843,7 @@
                     <p style="display: inline; position: relative; left: 50px"><span class="fragment" data-fragment-index="5">$w$</span> <span
                             class="fragment" data-fragment-index="4">Robin-PiP</span></p>
                 </span>
-            </section>
+            </section>-->
             <section>
                 <img data-id="result" class="fancy_img" src="assets/robin_overview.png" height="550px">
             </section>
@@ -859,7 +889,7 @@
                     <img class="fancy_img fragment fade-in-then-out" data-fragment-index="0" src="assets/robin_bias_corner_v2.svg">
                     <img class="fancy_img fragment fade-in-then-out" src="assets/robin_bias_v2.svg">
                     <img class="fancy_img fragment fade-in-then-out" src="assets/robin_bias_ratio_samples_v2.svg">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/robin_bias_acf_v2.svg">
+                    <img class="fancy_img fragment" src="assets/robin_bias_acf_v2.svg">
                 </div>
             </section>
         </section>
