@@ -369,6 +369,10 @@
                     <li>No intrinsic error estimation</li>
                 </ul>
                 <p style="padding-left: 20px">&rArr; Integrate as Bayesian neural networks</p>
+                <aside class="notes">
+                    <p>Training samples need to be close to the truth: run different scenarios etc.</p>
+                    <p>Can we be ambitious and directly infer from data (which is the true universe)</p>
+                </aside>
             </section>
             <section data-auto-animate>
                 <p style="text-align: left">New (big) data sets are coming in through e.g. Euclid, DESI,
@@ -600,6 +604,9 @@
                 </div>
             </section>
             <section>
+                TODO: Add slide comparing to TPL model
+            </section>
+            <section>
                 <p style="font-size: 120%; text-align: left; padding-bottom: 0.3em"><b>On model interpretability</b> &mdash; kernel weights</p>
                 <img class="fancy_img" src="assets/kernel_weights.svg" width="1200">
                 <p style="text-align: left; font-size: 70%; color: lightgrey; padding-top: 0.7em">for $L_{\rm voxel} = 7.81\,h^{-1}\rm{Mpc}$</p>
@@ -684,8 +691,11 @@
 
             </section>
             <section>
-                <p>Joint inference in $\texttt{BORG}$ stable</p>
-                <img class="fancy_img" src="assets/joint_sampling_v3.svg" height="400">
+                <p>Joint inference in $\texttt{BORG}$ <span class="yellow_text">is stable</span></p>
+                <div style="font-size: 75%; width: 100%; padding-top: 1em">
+                    <span style="padding-left: 230px">ICs $\xi(x)$</span><span style="padding-left: 140px; padding-right: 80px">matter density $\delta_{\rm m}(x)$</span><span>Halo density $\delta_{\rm h}(x)$</span>
+                </div>
+                <img class="fancy_img" src="assets/joint_sampling_v3.svg" height="420">
             </section>
             <section>
                 <h3 style="padding-bottom: 1em">Intermediate Summary</h3>
@@ -710,7 +720,7 @@
                 <h4>Field-Level inference from Galaxy surveys with BORG</h4>
                 <div data-transition="none" class="r-stack" style="position: relative">
                     <div>
-                        <img class="fancy_img" src="assets/borg.png">
+                        <img class="fancy_img" src="assets/borg_v2.svg">
                         <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
                             <div
                                     style="display: inline; width: 800px; text-align: left">
@@ -737,7 +747,7 @@
                 </div>
             </section>
             <section>
-                <p style="font-size: 1.2em">Can we pick better priors?</p>
+                <p style="font-size: 1.2em">Can we pick better priors $P(\theta)$?</p>
             </section>
             <section data-auto-animate>
                 <h3>physics informed priors from simulations</h3>
@@ -789,7 +799,7 @@
                 <h4>Field-Level inference from Galaxy surveys with BORG</h4>
                 <div data-transition="none" class="r-stack" style="position: relative">
                     <div>
-                        <img class="fancy_img" src="assets/borg.png">
+                        <img class="fancy_img" src="assets/borg_v2.svg">
                         <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
                             <div
                                     style="display: inline; width: 800px; text-align: left">
@@ -804,7 +814,7 @@
                         </div>
                     </div>
                     <p class="fragment"
-                       style="color: black; transform: rotate(-10deg); background-color: #e7e7e7; border-radius: 5px; position: relative; left: 320px; bottom: 172px">
+                       style="color: black; transform: rotate(-10deg); background-color: #e7e7e7; border-radius: 5px; position: relative; left: 320px; bottom: 117px">
                         &nbsp;Robin-PiP&nbsp;
                     </p>
                     <p
@@ -845,7 +855,7 @@
                 </span>
             </section>-->
             <section>
-                <img data-id="result" class="fancy_img" src="assets/robin_overview.png" height="550px">
+                <img data-id="result" class="fancy_img" src="assets/robin_overview.svg" height="550px">
             </section>
             <section>
                 <p style="padding-left: 40px" class="left_heading">Forward model setup</p>
@@ -867,21 +877,36 @@
             <section>
                 <h3>Inference scenario 1</h3>
             </section>
-            <section>
+            <section data-transition="none-out">
                 <div class="r-stack">
-                    <img class="fancy_img fragment fade-out" data-fragment-index="0" src="assets/robin_fields_v1.svg">
-                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="0" src="assets/robin_cross_v1.svg">
-                    <img class="fancy_img fragment fade-in" data-fragment-index="1" src="assets/robin_bias_v1.svg">
+                    <div style="position: relative; right: 410px; text-align: left;">
+                        <p style="padding-bottom: 3em">$\texttt{BORG}$</p>
+                        <p>$\texttt{BORG}$ & $\texttt{Robin-Pip}$</p>
+                    </div>
+                    <img style="position:relative; left: 200px" class="fancy_img" src="assets/hsnr_1_fields.svg" height="500px">
+                </div>
+            </section>
+            <section data-transition="none-in">
+                <div class="r-stack">
+                    <img class="fancy_img fragment fade-out" data-fragment-index="0" src="assets/hsnr_1_cross_corr.svg" height="500px">
+                    <img class="fancy_img" data-fragment-index="1" src="assets/hsnr_1_bias_func.svg" height="500px">
                 </div>
             </section>
             <section>
                 <ul>
-                    <li>Inference algorithm <b>cannot</b> distinguish <br> between statistically plausible solutions</li>
-                    <li>$\texttt{Robin-Pip}$ allows only physically plausible solutions</li>
+                    <li>Inference algorithm <span class="yellow_text">explores all statistically plausible</span> solutions</li>
+                    <li>$\texttt{Robin-Pip}$ <span class="yellow_text">allows only physically plausible</span> solutions</li>
                 </ul>
             </section>
             <section>
                 <h3>Inference scenario 2</h3>
+            </section>
+            <section>
+                <p>Add backup slide with ground truth for the corner plot</p>
+                <p>Add backup slide for bias function & ratios were we have vertical lines to help guide the eye for the degenerate regions</p>
+                <aside class="notes">
+                    <p>note down number for the discussion with the degeneracies</p>
+                </aside>
             </section>
             <section>
                 <div class="r-stack">
@@ -904,15 +929,27 @@
                 </ul>
                 <p style="text-align: left; font-size: 1.2em">Physics-informed priors $\texttt{Robin-PiP}$</p>
                 <ul style="text-align: left">
-                    <li>Principled way of incorporating simulations into
+                    <li>Principled way of incorporating high-fidelity simulations into
                         inference</li>
                     <li>Model agnostic</li>
-                    <li>Can robustify overparameterized models</li>
+                    <li>Improve parameter constraints & sampling efficiency</li>
                 </ul>
             </section>
             <section>
                 <h2>Outlook</h2>
-                <p>...</p>
+                <p class="left_heading">$\texttt{PineTree}$</p>
+                <ul>
+                    <li>Text mock generator for small mass halos</li>
+                    <li>reduce assumptions e.g. Poisson statistics, independent sampling</li>
+                    <li>Increase model complexity e.g. Dipole kernel, cosmology dependence</li>
+                </ul>
+                <p class="left_heading">$\texttt{Robin-Pip}$</p>
+                <ul>
+                    <li>Test with over-parameterised models</li>
+                    <li>Benchmark with external simulations</li>
+                </ul>
+                <p>Testing on independent high-fidelity simulations e.g. Quijote</p>
+                <p>Extension to galaxy mock and eventually real data</p>
             </section>
         </section>
         <section>
