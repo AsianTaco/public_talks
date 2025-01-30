@@ -74,7 +74,7 @@
             </div>
             <div data-transition="none" style="position: relative; bottom:100px">
                 <div class="title_box" style="border-radius: 15px 60px;">
-                    <h1 style="color: black; padding-top: 10px;">Advancing cosmological field-level inference</h1 >
+                    <h1 style="color: black; padding-top: 10px;">Advancing cosmological field-level inference</h1>
                     <h2 style="color: black">with physics-informed Bayesian neural networks</h2>
                     <p style="font-size: 80%; color: black">PhD defense, Institut d'Astrophysique de Paris, 30.01.2025</p>
                 </div>
@@ -90,36 +90,52 @@
         </section>
 <!--  Title page ends here  -->
         <section data-background-image="assets/background.jpg">
-            <section data-auto-animate>
-                <h3>Cosmology</h3>
-                <div style="text-align: left;">
-                    <p class="fragment"><b>Goal:</b> <span style="color: #FFD369FF">Understand the nature of our Universe</span></p>
-                    <p class="fragment" style="padding-top: 0.2em"><b>Method:</b></p>
-                    <ul style="padding-left: 40px">
-                        <li class="fragment">Observe celestial objects around us <span class="fragment">(<span style="color: #FFD369FF"><b>Data</b></span>)</span></li>
-                        <li class="fragment">Compare data against our theoretical predictions
-                            <span class="fragment"><br>(<span style="color: #FFD369FF"><b>Modelling</b> <span style="color: white">&</span> <b>Inference</b></span>)</span></li>
-                    </ul>
+            <section data-transition="none-in">
+                <div style="display: flex">
+                    <img style="display: inline-block" class="fancy_img" data-src="assets/esa_hist_universe.png" height="600">
+                    <div style="display: inline-block; width: 40%">
+                        <p style="align-content: center">Standard model <span class="yellow_text">$\Lambda$CDM</span></p>
+                        <img class="fancy_img fragment" src="assets/cosmic_content_simplified.jpg">
+                        <p class="fragment" style="font-size: 80%;">Inflation <span>& General relativity</span></p>
+                    </div>
                 </div>
             </section>
             <section>
                 <div class="r-stack">
                     <div>
-                        <p style="font-size: 1.2em; font-weight: bold"><span class="yellow_text">Data</span> in Cosmology</p>
-                        <ul>
-                            <li class="fragment" data-fragment-index="0"><span class="fragment custom highlight-yellow" data-fragment-index="5">Galaxy clustering</span></li>
-                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="1">Galaxy lensing</li></span>
-                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="2">Cosmic Microwave Background</li></span>
-                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="3">Voids</li></span>
-                            <span class="fragment fade-out" data-fragment-index="6"><li class="fragment" data-fragment-index="3">$\dots$</li></span>
+                        <p style="padding-top: 1.1em; padding-bottom: 0.4em">$\Lambda$CDM is successful, but many <span class="yellow_text">central questions remain open</span>:</p>
+                        <ul style="padding-left: 40px;">
+                            <li class="fragment">What is the nature of dark matter & dark energy?</li>
+                            <li class="fragment">What are the properties of the primordial Universe?</li>
+                            <li class="fragment">Are the underlying model assumptions still valid?</li>
+                            <li class="fragment">...</li>
                         </ul>
+                        <p class="fragment">How can we further advance our cosmological understanding?</p>
                     </div>
-                    <iframe class="fragment current-visible" data-fragment-index="4"
-                            style="border-radius: 13px; display: flex"
-                            height="600" width="900"
-                            data-autoplay
-                            src="https://youtube.com/embed/KJJXbcf8kxA?start=45&end=127">
-                    </iframe>
+                    <p style="text-align: left; position: relative; right: 250px; top: 269px; font-size: 70%; color: lightgrey">
+                        e.g. Perivolaropoulos & Skara (2022), Efstathiou (2024)</p>
+                </div>
+            </section>
+            <section>
+                <p class="left_heading">Test & validate our cosmological <span class="yellow_text">models</span></p>
+                <ul style="padding-left: 40px; padding-bottom: 0.9em; padding-top: 0.4em">
+                    <li class="fragment" data-fragment-index="0">Models like $\Lambda$CDM are characterised by parameters <br> e.g. <span class="fragment custom highlight-yellow" data-fragment-index="3">$\Omega_{\mathrm b}, \Omega_{\mathrm m}, n_{\mathrm s}, A_{\mathrm s}, \dots$</span></li>
+                    <li class="fragment" data-fragment-index="1">Physics is encoded in these parameters</li>
+                </ul>
+                <p class="fragment r-frame" data-fragment-index="2" style="padding: 13px; width: max-content; margin: auto"> Inferring <span class="fragment custom highlight-yellow" data-fragment-index="3">cosmological parameters</span> equates to learning <br> about the physics of our Universe</p>
+                <p class="fragment" style="padding-top: 0.3em; font-size: 1.1em">&rArr; Need observations (<span class="yellow_text">Data</span>)</p>
+            </section>
+            <section>
+                <div class="r-stack">
+                    <div>
+                        <p style="font-size: 1.2em; font-weight: bold; padding-bottom: 1.2em"><span class="yellow_text">Data</span> in Cosmology</p>
+                        <p class="fragment" data-fragment-index="0" style="padding-bottom: 2em">
+                            <span class="fragment custom highlight-yellow" data-fragment-index="1"><b>Galaxy clustering data</b></span>
+                            <br>
+                            <span style="font-size: 80%" class="fragment" data-fragment-index="1">i.e. distribution of galaxies around us</span>
+                        </p>
+                    </div>
+                    <img class="fancy_img fragment" data-src="assets/sdss.jpg" height="600px">
                 </div>
                 <aside class="notes">
                     <p><b>CMB</b>: Snapshot of the early universe</p>
@@ -127,133 +143,89 @@
                 </aside>
             </section>
             <section>
-                <div class="r-stack">
-                    <div data-fragment-index="2" class="fragment fade-out">
-                        <p style="font-weight: bold; font-size: 1.2em"><span class="yellow_text">Modelling</span> in Cosmology</p>
-                        <p data-fragment-index="0" class="fragment" style="font-weight: bold">The current concordance model is called <span style="color: #FFD369FF">$\Lambda$CMD</span></p>
+                <div style="display: flex">
+                    <div style="display: inline-block; width: 50%; text-align: left; align-content: center">
+                        <p class="left_heading" style="padding-bottom: 1.4em">New data &mdash; new era</p>
+                        <p class="fragment" data-fragment-index="0" style="padding-left: 30px">Next-generation surveys are here! <br><span style="font-size: 90%">e.g. DESI, Euclid, LSST, SPHEREx, ...</span></p>
+                        <p class="fragment" data-fragment-index="1" style="padding-left: 30px; padding-bottom: 1.2em">Unprecedented data sets with increase <span class="yellow_text">volume</span> and <span class="yellow_text">sensitivity</span></p>
                     </div>
-                    <img data-fragment-index="2" class="fancy_img fragment fade-in-then-out" src="assets/universe_hist.jpg" height="600">
+                    <div class="r-stack" style="display: inline-block; width: 50%">
+                        <div>&nbsp;</div>
+                        <img class="fragment fancy_img" data-fragment-index="2" src="assets/euclid_redshifts-1.png" width="480">
+                        <p class="fragment" data-fragment-index="2" style="text-align: right; position: absolute; right: 192px; top: 540px; font-size: 50%; color: lightgrey">
+                            Euclid Collaboration: Mellier et al. (2024)</p>
+                    </div>
                 </div>
+                <p class="fragment" data-fragment-index="3" style="padding-top: 0.4em">&rArr; Modern cosmology is transitioning into a <span class="yellow_text">data-driven era</span></p>
             </section>
-            <section data-auto-animate>
-                <p class="left_heading"><span class="yellow_text">Modelling</span> in Cosmology</p>
-                <ul style="padding-left: 40px; padding-bottom: 0.9em">
-                    <li class="fragment" data-fragment-index="0">$\Lambda$CDM model is charaterised by cosmological parameters $\theta$<br> e.g. <span class="fragment custom highlight-yellow" data-fragment-index="3">$\Omega_{\mathrm b}, \Omega_{\mathrm m}, n_{\mathrm s}, A_{\mathrm s}, \dots$</span></li>
-                    <li class="fragment" data-fragment-index="1">Physics is encoded in these parameters</li>
-                </ul>
-                <p class="fragment r-frame" data-fragment-index="2" style="padding: 13px; width: max-content; margin: auto"> Inferring <span class="fragment custom highlight-yellow" data-fragment-index="3">cosmological parameters</span> equates to learning <br> about the physics of our Universe</p>
+            <section>
+                <p class="left_heading">How to go from data to cosmological parameters?</p>
+                <div class="r-stack">
+                    <div>
+                        <p class="fragment" data-fragment-index="0" style="font-size: 1.1em"><span class="yellow_text"><b>No unique recovery</b></span> possible due to:</p>
+                        <ul style="padding-top: 0.2em">
+                            <li class="fragment" data-fragment-index="1">Incompleteness (e.g. survey masks)</li>
+                            <li class="fragment" data-fragment-index="3">Systematics (e.g. dust, atmosphere)</li>
+                            <li class="fragment" data-fragment-index="5">Noise (e.g. instrument)</li>
+                        </ul>
+                        <p class="fragment" data-fragment-index="6" style="padding: 0.4em;">&rArr; <span style="color: #b62222">Ill-posed inverse problem</span></p>
+                    </div>
+                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="2" src="assets/euclid_footprint.png" alt="" height="500">
+                    <p class="fragment fade-in-then-out" data-fragment-index="2" style="text-align: left; position: absolute; right: 710px; top: 567px; font-size: 45%; color: black">
+                        Euclid Collaboration: Scaramella et al. (2022)</p>
+                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="4" src="assets/dust.png" alt="" height="500">
+                    <p class="fragment fade-in-then-out" data-fragment-index="4" style="text-align: right; position: absolute; right: 155px; top: 567px; font-size: 45%; color: white">
+                        Yi-Kuan Chiang (2023)</p>
+                </div>
+                <aside class="notes">
+                    <p>Data cannot be directly connected to the cosmological parameters</p>
+                    Source:
+                    <p>Dust map source </p>
+                </aside>
             </section>
             <section>
                 <p class="left_heading">Bayesian <span class="yellow_text">Inference</span></p>
-                <p class="fragment" style="text-align: left">Given some observational data, we want to <br> derive sensible cosmological parameters $\theta$</p>
+                <p class="fragment" data-fragment-index="0" style="text-align: left">Given some observational data, we want to derive <br> a statistical solution of sensible cosmological parameters $\theta$</p>
+                <p class="fragment" data-fragment-index="1" style="text-align: left">&rArr; Construct data model $\mathcal{M}(\theta)$ <span class="fragment yellow_text" data-fragment-index="5">$=\mathcal{M}(\theta_{\text{cosmo}},\theta_{\text{inst}},\dots)$</span> </p>
                 <div style="display: flex; padding-top: 0.4em; padding-bottom: 0.4em">
-                    <div style="display: inline; align-content: center; padding-right: 45px" class="fragment">Bayes' theorem:</div>
-                    <div style="display: inline; padding-left: 13px; padding-right: 13px" class="r-frame fragment" data-id="frame">
-                        \[ P(\theta|\text{data}) = \frac{P(\text{data}|\theta)P(\theta)}{P(\text{data})} \]
+                    <div style="display: inline; align-content: center; padding-right: 35px" class="fragment" data-fragment-index="2">Bayes' theorem:</div>
+                    <div style="display: inline; padding-left: 13px; padding-right: 13px" class="r-frame fragment" data-fragment-index="3" data-id="frame">
+                        \[ P(\theta|\text{data}, \mathcal{M}) = \frac{P(\text{data}|\theta, \mathcal{M})P(\theta| \mathcal{M})}{P(\text{data}|\mathcal{M})} \]
                     </div>
                 </div>
-                <p class="fragment">&Rightarrow; Solve for $P(\theta|\text{data})$</p>
-            </section>
-            <section data-transition="slide-in none-out">
-                <div class="r-stack">
-                    <p class="fragment fade-out" data-fragment-index="0" style="font-size: 1.2em; font-weight: bold">Bayesian Inference &mdash; An example</p>
-                    <img class="fancy_img fragment" data-fragment-index="0" src="assets/example_setup_2.jpg" height="600">
-                </div>
-            </section>
-            <section data-transition="none">
-                <video style="border-radius: 15px" data-autoplay src="assets/noisy_obs.mp4" height="450"></video>
-            </section>
-            <section data-transition="none-in slide-out" data-auto-animate>
-                <p class="left_heading">Bayesian Inference &mdash; An example</p>
-                <ul style="padding-bottom: 20px">
-                    <li class="fragment" data-fragment-index="0">Recorded light intensity at different times $I(t_{\text{obs}})$</li>
-                    <li class="fragment" data-fragment-index="1">Theoretical model: <span class="fragment custom highlight-darkblue" data-fragment-index="6">$I'(t)\,$</span>$=\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$A$</span>$\,\sin(2\pi$<span class="fragment custom highlight-yellow" data-fragment-index="4">$f$</span>$t +\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$\phi$</span>$)+\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$B$</span>$\,+\,n$</li>
-                    <li class="fragment" data-fragment-index="2">Simple additive Gaussian noise &Rightarrow; $P(\text{data}|\theta,\eta)=\,$<span class="fragment custom highlight-darkred" data-fragment-index="9">$\mathcal{N}((I' - I), \sigma^2)$</span></li>
-                </ul>
-                <div class="r-frame fragment" data-fragment-index="3">
-                    <p class="fragment" data-fragment-index="3" style="display: inline-block; width: 45%; vertical-align: middle"><span class="fragment custom highlight-yellow" data-fragment-index="4">Target&nbsp;</span>& nuisance
-                        <br> parameters <span class="fragment custom highlight-yellow" data-fragment-index="4">$\theta$</span>$\,+\,$<span>$\eta$</span></p>
-                    <p class="fragment" data-fragment-index="5" style="display: inline-block">&xrarr;</p>
-                    <p class="fragment" data-fragment-index="5" style="display: inline-block; width: 45%; vertical-align: middle">Make prediction <span class="fragment custom highlight-darkblue" data-fragment-index="6">$\text{data}' = \text{Model}(\theta,\eta)$</span></p>
-                    <p class="fragment" data-fragment-index="10" style="display: inline-block; rotate: 225deg; position: relative; bottom: 55px; left: 45px">&xrarr;</p>
-                    <p class="fragment" data-fragment-index="7" style="display: inline-block; width: 33%; vertical-align: middle">Compare to data <br> with <span class="fragment custom highlight-darkred" data-fragment-index="9">$P(\text{data}|\theta,\eta)$</span></p>
-                    <p class="fragment" data-fragment-index="7" style="display: inline-block; rotate: 135deg; position: relative; bottom: 55px; right: 45px">&xrarr;</p>
-                </div>
-            </section>
-            <section data-auto-animate>
-                <p class="left_heading">Bayesian Inference &mdash; An example</p>
-                <img class="fancy_img" src="assets/noisy_params.svg">
-            </section>
-            <section>
-                <ul style="list-style-type: '&raquo;&nbsp'; padding-bottom: 1em; padding-top: 0.5em">
-                    <li class="fragment" style="padding-bottom: 0.3em">Our understanding of the Universe is encoded in <br> our theoretical models and its parameters</li>
-                    <li class="fragment">We may gain new insights by inferring the values <br> of these cosmological parameters through observations</li>
-                </ul>
-                <div class="r-frame fragment">
-                    <p style="display: inline-block; width: 45%"><span class="yellow_text">Inferred</span> parameters $\theta$</p>
-                    <p style="display: inline-block">&xrarr;</p>
-                    <p style="display: inline-block; width: 45%; vertical-align: middle">Cosmological <span class="yellow_text">model</span>
-                        <br> e.g. $\Lambda$CDM$(\theta)$ </span></p>
-                    <p style="display: inline-block; rotate: 225deg; position: relative; bottom: 65px; left: 45px">&xrarr;</p>
-                    <p style="display: inline-block; width: 33%; vertical-align: middle">Observational <span class="yellow_text">data</span> <br> e.g. galaxy surveys</p>
-                    <p style="display: inline-block; rotate: 135deg; position: relative; bottom: 65px; right: 45px">&xrarr;</p>
-                </div>
-            </section>
-
-        </section>
-        <section data-background-image="assets/background.png">
-            <section data-auto-animate>
-                <h1 style="display: inline-block">Advancing&nbsp;</h1><h1 style="display: inline-block">cosmological&nbsp;</h1><h1 style="display: inline-block">field-level&nbsp;</h1><h1 style="display: inline-block">inference</h1>
-                <h2 style="display: inline-block">with&nbsp;</h2><h2 style="display: inline-block">physics-informed&nbsp;</h2><h2 style="display: inline-block">Bayesian neural networks</h2>
-            </section>
-            <section data-auto-animate>
-                <h1 style="display: inline-block">Advancing&nbsp;</h1><h1 style="display: inline-block">cosmological&nbsp;</h1><h1 style="display: inline-block">inference</h1>
-                <div class="r-stack">
-                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="0" src="assets/cosmic_content_simplified.jpg" height="500">
-                    <div>
-                        <p class="fragment" data-fragment-index="1" style="padding-top: 1.1em">$\Lambda$CDM is great <b>but</b>, many <span class="yellow_text">central questions remain open</span>:</p>
-                        <ul style="padding-left: 40px;">
-                            <li class="fragment">Nature of dark matter & dark energy</li>
-                            <li class="fragment">Modified gravity</li>
-                            <li class="fragment">...</li>
-                        </ul>
-                        <p class="fragment" style="padding-top: 0.4em">&Rightarrow; Need for <span class="yellow_text">robust</span> and <span class="yellow_text">improved</span> parameter constraints</p>
-                    </div>
-                    <p class="fragment" data-fragment-index="1" style="text-align: left; position: relative; right: 250px; top: 269px; font-size: 70%; color: lightgrey">
-                        e.g. Perivolaropoulos & Skara (2022), Efstathiou (2024)</p>
-                </div>
+                <p class="fragment" data-fragment-index="4" style="text-align: left">Data model encodes <span class="fragment custom highlight-yellow" data-fragment-index="5">all observational and physical</span> effects!</p>
             </section>
             <section>
                 <p style="font-size: 1.2em">The canonical approach to cosmological inference</p>
                 <div style="display: flex">
                     <div class="r-stack">
                         <div class="fragment" data-fragment-index="0" style="display: inline; align-content: center">Galaxy clustering data</div>
-                        <img class="fragment fancy_img" data-fragment-index="1" src="assets/sdss.jpg" width="500px" style="display: inline; align-content: center">
+                        <img class="fragment fancy_img" data-fragment-index="1" data-src="assets/sdss.jpg" width="500px" style="display: inline; align-content: center">
                     </div>
                     <div class="fragment" data-fragment-index="2" style="display: inline; align-content: center; padding-left: 15px; padding-right: 5px">&xrarr;</div>
                     <div class="r-stack">
                         <div class="fragment" data-fragment-index="2" style="display: inline; align-content: center">Compress to <span class="yellow_text">power spectrum</span> $P(k)$</div>
-                        <img class="fragment fancy_img" src="assets/cosmic_concordance.svg" height="480px">
+                        <img class="fragment fancy_img" src="assets/cosmic_concordance.svg" height="500px" style="display: inline; align-content: center">
                     </div>
                 </div>
             </section>
             <section>
                 <p>Compression will <b>reduce</b> information content of data</p>
                 <div style="display: flex; align-items: center">
-                    <img class="fragment" data-fragment-index="0" src="assets/low_res_quijote_dm.svg" height="373">
+                    <img class="fragment fancy_img" data-fragment-index="0" data-src="assets/low_res_quijote_dm.png" height="373">
                     <div>&nbsp;&nbsp;</div>
-                    <img class="fragment" data-fragment-index="1" src="assets/random_field.svg" height="373">
-                    <div style="padding: 10px">&rarr;</div>
-                    <img class="fragment" data-fragment-index="2" src="assets/pk_fields.svg" height="373">
+                    <img class="fragment fancy-img" data-fragment-index="1" data-src="assets/random_field.png" height="373">
+                    <div style="padding: 10px" class="fragment" data-fragment-index="2">&rArr;</div>
+                    <img class="fragment fancy_img" data-fragment-index="2" data-src="assets/pk_fields.png" height="373">
                 </div>
                 <p class="fragment" data-fragment-index="3" style="display: inline-block">&rArr; Switch to&nbsp;</p><p class="fragment yellow_text" data-fragment-index="3" style="display: inline-block">field-level inference</p>
             </section>
             <section>
-                <p style="display: inline-block; font-size: 1.3em">Field-level inference</p>
+                <h3>Field-level inference</h3>
                 <div class="r-stack">
                     <p class="fragment" data-fragment-index="0" style="width: 600px; text-align: left; position: relative; right: 270px">
                         Model the full cosmic field to <br><span class="yellow_text">maximise the information</span>, <br> extracted from the data</p>
-                    <img class="fancy_img fragment" data-fragment-index="1" src="assets/field-level-improvement.jpeg" height="500px" style="position: relative; left: 170px">
+                    <img class="fancy_img fragment" data-fragment-index="1" data-src="assets/field-level-improvement.jpeg" height="500px" style="position: relative; left: 170px">
                     <p class="fragment" data-fragment-index="1" style="font-size:50%; position: relative; left: 500px; top: 230px">
                         Leclerq & Heavens (2021)
                     </p>
@@ -277,7 +249,7 @@
                     <div class="fragment fade-out" data-fragment-index="7"
                          style="background-color: white; width:280px;height:130px; position: relative; left:330px; bottom: 180px"></div>
                     <div>
-                        <img class="fancy_img" src="assets/borg_v2.svg">
+                        <img class="fancy_img" data-src="assets/borg_v2.svg">
                         <div style="display: flex; align-items: center; font-size:50%; padding-top: 1.4em">
                             <div style="display: inline; width: 800px; text-align: left">
                                 Jasche & Wandelt (2013),
@@ -292,13 +264,42 @@
                     </div>
                     <p class="fragment" data-fragment-index="9"
                        style="position: relative; top: 200px; right: 0px; font-size: 80%">
-                        Sampling <span class="yellow_text">$\sim 2.1\times 10^6$ parameters</span> with Hamiltonian Monte Carlo (HMC) method
+                        Sampling <span class="yellow_text">$\sim 2.1\times 10^6$ parameters</span> (ICs, cosmological parameters, ...)
                     </p>
                 </div>
             </section>
             <section>
+                <h3>Solving for a high-dimensional posterior</h3>
+                <p class="fragment" data-fragment-index="0" style="text-align: left;">Numerical solution of $P(\theta|\text{data})$ using <br> efficient <span class="yellow_text">Monte Carlo Markov Chain (MCMC)</span> methods</p>
+                <div style="display: flex">
+                    <div style="display: inline-block; width: 55%; align-content: center; vertical-align: middle; text-align: left; font-size: 90%;">
+                        <ul>
+                            <li class="fragment" data-fragment-index="1">Discretise the posterior distribution through samples</li>
+                            <li class="fragment" data-fragment-index="2">In $\texttt{BORG}$:
+                                Hamiltonian Monte Carlo (HMC) <br> &rArr; Leverage gradient information</li>
+                            <li class="fragment">Need <span class="yellow_text">many evaluations</span> of data model</li>
+                        </ul>
+                    </div>
+                    <div class="r-stack" style="display: inline-block; width: 40%">
+                        <img style="position: absolute" class="fancy_img fragment" data-fragment-index="1" src="assets/sampled_dist.svg" width="400">
+                        <img class="fancy_img fragment" data-fragment-index="2" src="assets/hmc_gif.gif" width="400">
+                        <p class="fragment" data-fragment-index="2" style="text-align: right; position: absolute; right: 125px; top: 585px; font-size: 45%; color: black">
+                            Credit: Adam Andrews</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <p>Analytical solution not possible</p>
+                    <p>MCMC will eventually converge to the true posterior</p>
+                </aside>
+            </section>
+            <section>
+                <div>
+                    <p style="display: inline-block; width: 30%">Inferred ICs</p>
+                    <p style="display: inline-block; width: 30%">Inferred density</p>
+                    <p style="display: inline-block; width: 30%">Observed galaxies</p>
+                </div>
                 <video data-autoplay width="1300">
-                    <source src="assets/Borg_2mpp.webm" type="video/webm"/>
+                    <source data-src="assets/Borg_2mpp.webm" type="video/webm"/>
                 </video>
                 <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
                     <div
@@ -307,95 +308,61 @@
                     </div>
                 </div>
             </section>
-            <!--            <section>
-                            <img src="assets/Sdss_wedge_density_velocity.png" height="620">
-                            <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em; position: relative; bottom: 70px; left: 40px">
-                                <div
-                                        style="display: inline; width: 800px; text-align: left">
-                                    Leclercq et al. (2017)
-                                </div>
-                                <div
-                                        style="display: inline; position: relative; left: 100px">Image credit: G. Lavaux
-                                </div>
-                            </div>
-                        </section>-->
             <section>
-                <p style="text-align: left">New (big) data sets are coming in through e.g. Euclid, DESI, LSST, ...</p>
-                <p class="fragment">&rArr; Need to adapt our data model</p>
-                <p class="fragment">Example inference with <span class="yellow_text">more observations</span> and <span class="yellow_text">better sensitivity</span></p>
-                <div class="r-stack">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/noisy_obs.svg" height="350px">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/improved_obs.svg" height="350px"   >
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/biased_params_1.svg">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/biased_params_2.svg">
-                    <div class="fragment" style="text-align: left">
-                        <p>Noise is actually more complex:<br>
-                            $\sigma = \sigma_{\text{sky}} + \sigma_{\text{ant}} + \sigma_{\text{heat}} t$
-                        </p>
-                        <p>Simple noise model will bias results</p>
-                        <p>More <span class="yellow_text">(nuisance) parameters</span> needed</p>
-                    </div>
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/correct_params_1.svg">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/correct_params_2.svg">
+                <ul style="list-style-type: '&raquo;&nbsp'; padding-bottom: 1em; padding-top: 0.5em">
+                    <li class="fragment" style="padding-bottom: 0.3em">Our understanding of the Universe is encoded in <br> our theoretical models and its parameters</li>
+                    <li class="fragment">We may gain <span>new insights</span> by inferring the values <br> of these cosmological parameters through observations</li>
+                </ul>
+                <div class="r-frame fragment">
+                    <p style="display: inline-block; width: 45%; vertical-align: middle"><span class="yellow_text">Inferred</span> parameters $\theta$
+                        <br> e.g. HMC algorithms</p>
+                    <p style="display: inline-block">&xrarr;</p>
+                    <p style="display: inline-block; width: 45%; vertical-align: middle">Cosmological <span class="yellow_text">model</span>
+                        <br> e.g. $\Lambda$CDM, $w$CDM, ... </p>
+                    <p style="display: inline-block; rotate: 225deg; position: relative; bottom: 65px; left: 45px">&xrarr;</p>
+                    <p style="display: inline-block; width: 33%; vertical-align: middle">Observational <span class="yellow_text">data</span> <br> e.g. Euclid, LSST, ...</p>
+                    <p style="display: inline-block; rotate: 135deg; position: relative; bottom: 65px; right: 45px">&xrarr;</p>
                 </div>
+                <aside class="notes">
+                    <ul style="padding-top: 0.5em">
+                        <li>Include non-trivial physical dynamics on small scales</li>
+                        <li>Account for new (unknown) systematics</li>
+                        <li>Maintain computational performance on large survey volumes</li>
+                    </ul>
+                </aside>
             </section>
             <section>
-                <p style="text-align: left; font-size: 1.2em">What about numerical ($N$-body) simulations?</p>
-                <p class="fragment" style="font-size: 90%; text-align: left; padding-left: 36pt; color: whitesmoke;">e.g. <b>Euclid flagship simulation</b>, <b>Quijote</b> (Villaescusa-Navarro, et al. 2020),
-                    <br> <b>Abacus</b> (Garrison, et al. 2017)</p>
-                <ul>
-                    <li class="fragment">Most accurate cosmological modelling method available</li>
-                    <li class="fragment"><b>BUT</b>: Very expensive to run! (~ <span class="yellow_text">millions of CPU hours</span>)</li>
-                    <li class="fragment">Inference need many forward evaluations (~ millions)</li>
-                </ul>
-            </section>
-            <section data-auto-animate>
-                <p style="text-align: left">New (big) data sets are coming in through e.g. Euclid, DESI, LSST, ...</p>
-                <p class="fragment" style="text-align: left"><b>Challenge:</b> <span class="yellow_text">Accurate</span> and <span class="yellow_text">efficient</span> data modelling</p>
-                <ul>
-                    <li class="fragment">Non-trivial dynamics on small scales</li>
-                    <li class="fragment">Maintain computational performance on large survey volumes</li>
-                    <li class="fragment">New (unknown) systematics</li>
-                    <li class="fragment">...</li>
-                </ul>
-                <p class="fragment" style="text-align: left;padding-top: 0.7em">&Rightarrow; Modern cosmology will become <span class="yellow_text">systematics-limited</span> research field</p>
-            </section>
-            <section style="text-align: left">
-                <p style="font-size: 1.1em">Leverage <span class="yellow_text">machine learning</span> as a new modelling approach</p>
-                <p style="padding-left: 20px">&rArr; Neural networks as universal function approximators</p>
-                <p style="padding: 20px;"><b>However</b></p>
-                <ul style="padding-left: 40px;">
-                    <li>Need enough training examples</li>
-                    <li>No intrinsic error estimation</li>
-                </ul>
-                <p style="padding-left: 20px">&rArr; Integrate as Bayesian neural networks</p>
+                <h3 style="padding: 2em;">In the data-driven era of cosmology</h3>
+                <p class="r-frame" style="padding: 10px; width: fit-content; margin: auto">We need <span class="yellow_text">accurate</span>, <span class="yellow_text">flexible</span>, and <span class="yellow_text">efficient</span> data models</p>
+                <p class="fragment" style="font-size: 1em; padding-top: 1.5em">Leverage <span class="yellow_text">machine learning</span> as a new modelling approach</p>
+                <p class="fragment" style="padding-left: 20px">&rArr; Neural networks as universal function approximators</p>
                 <aside class="notes">
+                    <p style="padding: 20px;"><b>However</b></p>
+                    <ul style="padding-left: 40px;">
+                        <li>Need large number of accurate training samples</li>
+                        <li>No intrinsic error estimation</li>
+                    </ul>
                     <p>Training samples need to be close to the truth: run different scenarios etc.</p>
+                </aside>
+            </section>
+            <section>
+                <h3>Can we be more ambitious?</h3>
+                <p>&rArr; Integrate neural networks directly into cosmological inference <br>
+                as <span class="yellow_text">Bayesian neural networks</span></p>
+                <aside class="notes">
                     <p>Can we be ambitious and directly infer from data (which is the true universe)</p>
                 </aside>
             </section>
-            <section data-auto-animate>
-                <p style="text-align: left">New (big) data sets are coming in through e.g. Euclid, DESI,
-                    LSST, ...</p>
-                <p style="text-align: left"><b>Challenge:</b> How to incorporate more flexible models? <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    e.g. Bayesian neural networks</p>
-                <p style="padding-top: 1em" class="fragment">We only have one Universe!<br>
-                    &rarr; Data unable to constrain both physics and nuisance parameters
-                </p>
-            </section>
             <section>
-                <p style="padding-bottom: 1.2em">Possible solutions:</p>
-                <ol type="1" style="padding-bottom: 3.8em">
-                    <li class="fragment">Models with reduce parameter space</li>
-                    <li class="fragment">Use better (behaved) priors $P(\theta)$</li>
+                <p style="padding-bottom: 1.3em">We only have one Universe!<br>
+                    &rarr; Data unable to constrain billions of degenerate parameters
+                </p>
+                <p class="fragment" style="padding-bottom: 0.3em; font-size: 1.1em"><b>Physics-informed solutions:</b></p>
+                <ol type="1" style="padding-bottom: 1em">
+                    <li class="fragment" style="padding-bottom: 0.3em">Neural networks with reduce parameter space</li>
+                    <li class="fragment">Incorporation of better (behaved) priors $P(\theta)$</li>
                 </ol>
             </section>
-<!--            <section>
-                <video controls muted height="580" style="border-radius: 10px;"
-                       src="assets/orig-2410_023_AR_EN.mp4#t=27,137"
-                ></video>
-            </section>-->
         </section>
         <section>
             <section>
@@ -408,10 +375,10 @@
                 </p>
             </section>
             <section>
-                    <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+                    <h2>Field-Level inference from Galaxy surveys with $\texttt{BORG}$</h2>
                     <div data-transition="none" class="r-stack" style="position: relative">
                         <div>
-                            <img class="fancy_img" src="assets/borg_v2.svg">
+                            <img class="fancy_img" data-src="assets/borg_v2.svg">
                             <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
                                 <div style="display: inline; width: 800px; text-align: left">
                                     Jasche & Wandelt (2013),
@@ -442,32 +409,20 @@
                          style="background-color: white; width:230px;height:70px; position: relative; right: 190px; bottom: 140px"></div>
                     <div class="fragment fade-out" data-fragment-index=1"
                          style="background-color: white; width:550px;height:500px; position: relative; left: 185px;"></div>
-                    <img class="fancy_img" src="assets/cosmic_content.jpg" height="550">
+                    <img class="fancy_img" data-src="assets/cosmic_content.jpg" height="550">
                 </div>
                 <p class="fragment">&rArr; Simplify to <span class="yellow_text">"dark matter only"</span> universe <span class="fragment">(for now)</span></p>
             </section>
             <section>
-                <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+                <h2>Field-Level inference from Galaxy surveys with $\texttt{BORG}$</h2>
                 <div data-transition="none" class="r-stack" style="position: relative">
                     <div>
-                        <img class="fancy_img" src="assets/borg_reduced_v3.svg">
-                        <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
-                            <div
-                                    style="display: inline; width: 800px; text-align: left">
-                                Jasche & Wandelt (2013),
-                                Jasche, Leclercq & Wandelt (2015),<br>
-                                Lavaux & Jasche (2016),
-                                Jasche & Lavaux (2019)
-                            </div>
-                            <div
-                                    style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah
-                            </div>
-                        </div>
+                        <img class="fancy_img" data-src="assets/borg_reduced_v3.svg">
                     </div>
-                    <p class="fragment" style="position: relative; top: 197px; right: 135px; font-size: 80%">
-                        Consider only dark matter:&nbsp; <span class="yellow_text">$\delta_{\rm m}(x) \rightarrow n_{\rm h}\big(M|\delta_{\rm m}(x)\big)$</span>
-                    </p>
                 </div>
+                <p class="fragment" style="font-size: 80%">
+                    Consider only dark matter:&nbsp; <span class="yellow_text">$\delta_{\rm m}(x) \rightarrow n_{\rm h}\big(M|\delta_{\rm m}(x)\big)$</span>
+                </p>
             </section>
             <section>
                 <p style="font-size: 1.2em; text-align: left"><b>Benchmark new model</b></p>
@@ -515,7 +470,7 @@
                             <li>differentiable</li>
                             <li>Stochastic</li>
                             <li>Explainable</li>
-                            <li>17-32 parameters</li>
+                            <li>19-35 parameters</li>
                         </ul>
                         </p>
                     </div>
@@ -553,15 +508,15 @@
                             &bullet; Generative process
                         </div>
                         <p style="color: black">
-                    <span><img class="fragment" data-fragment-index="0" src="assets/density.png" height="200"
+                    <span><img class="fragment" data-fragment-index="0"  data-src="assets/density.png" height="200"
                                style="display: inline; padding-right: 20pt;
                              vertical-align: middle"> <span class="fragment" data-fragment-index="2">&rArr;</span>
-                        <img class="fragment" data-fragment-index="4" src="assets/monopole_kernel.png"
+                        <img class="fragment" data-fragment-index="4"  data-src="assets/monopole_kernel.png"
                              height="200"
                              style="display: inline; vertical-align: middle"></span>
-                            <span class="fragment" data-fragment-index="7">&rArr;<img src="assets/mdn_v2.svg" height="200"
+                            <span class="fragment" data-fragment-index="7">&rArr;<img  data-src="assets/mdn_v2.svg" height="200"
                                                                                       style="display: inline; vertical-align: middle"></span>
-                            <span class="fragment" data-fragment-index="9">&rArr;<img src="assets/sampling.png"
+                            <span class="fragment" data-fragment-index="9">&rArr;<img  data-src="assets/sampling.png"
                                                                                       width="300"
                                                                                       style="display: inline; vertical-align: middle"></span>
                         </p>
@@ -575,15 +530,19 @@
                         </p>
                     </div>
                     <img class="fragment current-visible" data-fragment-index="5"
-                         style="position: relative; right: 232px; top: 50px" src="assets/multipole_evol.gif"
+                         style="position: relative; right: 232px; top: 50px"  data-src="assets/multipole_evol.gif"
                          width="400">
                 </div>
+                <aside class="notes">
+                    <p>rotational invariance</p>
+                </aside>
             </section>
             <section>
                 <p style="font-size: 1.2em; text-align: left"><b>Benchmark &mdash; Setup</b></p>
                 <ul>
                     <li class="fragment">Optimise using <span class="yellow_text">Poisson likelihood</span></li>
-                    <li class="fragment">10 halo catalogues at $z=\{ 0, 1 \}$ from <b>L-Gadget</b> + <b>rockstar</b></li>
+                    <li class="fragment">10 halo catalogues at $z=\{ 0, 1 \}$ from $\texttt{L-Gadget}$ and $\texttt{ROCKSTAR}$
+                        <br> <span style="font-size: 85%">(Springel, 2005 and Behroozi et al., 2013)</span></li>
                     <li class="fragment">Corresponding <span class="yellow_text">2LPT</span> overdensity fields</li>
                     <li class="fragment">$L_{\rm box} = 500\,h^{-1}\rm{Mpc}$</li>
                     <li class="fragment">$M_{\rm{vir}} > 2 \times 10^{12}\,h^{-1}M_{\odot}$</li>
@@ -591,46 +550,46 @@
                 </ul>
             </section>
             <section>
-                <img class="fancy_img" src="assets/best_fit_overfiew.png" width="1896">
+                <img class="fancy_img"  data-src="assets/best_fit_overfiew.png" width="1896">
             </section>
-            <section>
-                <div style="display: inline-block">
-                    <p style="font-size: 90%">Conditional halo mass function</p>
-                    <img class="fancy_img" src="assets/conditional_hmf.png" height="510">
-                </div>
-                <div style="display: inline-block">
-                    <p style="font-size: 90%">Cross-correlation coefficient</p>
-                    <img class="fancy_img" src="assets/cross-correlation.png" height="510">
-                </div>
-            </section>
-            <section>
-                TODO: Add slide comparing to TPL model
-            </section>
-            <section>
-                <p style="font-size: 120%; text-align: left; padding-bottom: 0.3em"><b>On model interpretability</b> &mdash; kernel weights</p>
-                <img class="fancy_img" src="assets/kernel_weights.svg" width="1200">
-                <p style="text-align: left; font-size: 70%; color: lightgrey; padding-top: 0.7em">for $L_{\rm voxel} = 7.81\,h^{-1}\rm{Mpc}$</p>
-            </section>
-<!--            <section>-->
-<!--                <p>With SPH smoothing instead of CIC</p>-->
-<!--                <img class="fancy_img" src="assets/sph_kernel.svg" height="550">-->
-<!--            </section>-->
             <section>
                 <div class="r-stack">
-                    <img class="fancy_img fragment fade-out" data-fragment-index="0" src="assets/pt_inference_schematic.svg">
                     <div>
-                        <p class="fragment" data-fragment-index="0" style="font-size: 1.2em"><b>$\texttt{PineTree}$ as Bayesian neural network</b></p>
-                        <ul style="padding-top: 0.3em">
-                            <li class="fragment">Test inference on mock data</li>
-                            <li class="fragment">Network parameters are directly sampled</li>
-                        </ul>
+                        <p class="fragment fade-out" data-fragment-index="1" style="font-size: 1.2em; padding-bottom: 1.2em"><b>Comparison against local bias model</b></p>
+                        <p class="fragment fade-in-then-out" data-fragment-index="0">Truncated power law (Neyrinck et al., 2014):</p>
+                        <p class="fragment fade-in-then-out" data-fragment-index="0">$$\lambda(x) = \textcolor{teal}{\bar{N}} (\delta_{\rm m}(x) + 1)^{\textcolor{teal}{\alpha}} \exp \left[- \left(\frac{\delta_{\rm m}(x) + 1}{\textcolor{teal}{\rho_{\exp}}}\right)^{-\textcolor{teal}{\varepsilon}}\right]$$</p>
                     </div>
+                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="1" src="assets/tpl_func_neyrinck.png" height="600px">
+                    <p class="fragment fade-in-then-out" data-fragment-index="1" style="text-align: left; position: absolute; right: 804px; top: 594px; font-size: 50%; color: black">
+                        Neyrinck et al. (2014)</p>
+                    <img class="fancy_img fragment" data-src="assets/pt_vs_tpl.png" height="650px">
                 </div>
+            </section>
+            <section>
+                <p style="font-size: 1.2em; text-align: left; padding-bottom: 0.3em"><b>On model interpretability</b> &mdash; kernel weights</p>
+                <img class="fancy_img"  data-src="assets/kernel_weights.svg" width="1200">
+                <p style="text-align: left; font-size: 70%; color: lightgrey; padding-top: 0.7em">for $L_{\rm voxel} = 7.81\,h^{-1}\rm{Mpc}$</p>
+            </section>
+            <section>
+                <div  style="display: flex">
+                    <div style="display: inline-block; width: 30%; align-content: center; vertical-align: middle; padding: 40px">Where does our model break down?</div>
+                    <img class="fancy_img fragment" style="display: inline-block" src="assets/pt_overview.png" height="630">
+                </div>
+            </section>
+            <section>
+                <p class="" data-fragment-index="0" style="font-size: 1.3em"><b>$\texttt{PineTree}$ as Bayesian neural network</b></p>
+                <img class="fancy_img fragment" data-fragment-index="0" data-src="assets/pt_inference_schematic.svg">
+                <aside class="notes">
+                    <ul style="padding-top: 0.3em">
+                        <li>Test inference on mock data</li>
+                        <li>Network parameters are directly sampled</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <div class="r-stack">
                     <p style="position: relative; right: 420px; text-align: left;">Parameter samples:</p>
-                    <img style="position: relative; left: 30px;" class="fancy_img" src="assets/fixed_ics_v1.svg" height="650">
+                    <img style="position: relative; left: 30px;" class="fancy_img"  data-src="assets/fixed_ics_v1.svg" height="650">
                     <p style="position: relative; left: 400px;" class="fragment">What went <br> wrong?</p>
                 </div>
             </section>
@@ -666,7 +625,6 @@
                         $$
                             P_u(u) = P_x(x)\left|\frac{\mathrm{d}x}{\mathrm{d}u}\right| = P_x(x) \frac {1}{1 - e^{-u}}
                             $$</p>
-
                 </div>
             </section>
             <section data-auto-animate>
@@ -686,7 +644,7 @@
                         <li>Removed 3 degenerate <br> parameters</li>
                         <li style="padding-top: 0.3em">Added inverse Jacobian <br> to adjust prior</li>
                     </ul>
-                    <img style="position: relative; left: 150px;" class="fancy_img" src="assets/fixed_ics_v3.svg" height="700">
+                    <img style="position: relative; left: 150px;" class="fancy_img" data-src="assets/fixed_ics_v3.svg" height="700">
                 </div>
 
             </section>
@@ -695,19 +653,21 @@
                 <div style="font-size: 75%; width: 100%; padding-top: 1em">
                     <span style="padding-left: 230px">ICs $\xi(x)$</span><span style="padding-left: 140px; padding-right: 80px">matter density $\delta_{\rm m}(x)$</span><span>Halo density $\delta_{\rm h}(x)$</span>
                 </div>
-                <img class="fancy_img" src="assets/joint_sampling_v3.svg" height="420">
+                <img class="fancy_img" data-src="assets/joint_sampling_v3.svg" height="420">
             </section>
             <section>
                 <h3 style="padding-bottom: 1em">Intermediate Summary</h3>
                 <p class="fragment" style="text-align: left">&bull; <b>Generative model</b> for <b>LARGE</b>
                     (Euclid-like) volumes</p>
-                <p class="fragment" style="text-align: left">&bull; Differentiable & fast ( ~10min to simulate a $3\,h^{-1}\,\mathrm{Gpc}$ box)</p>
-                <p class="fragment" style="text-align: left">&bull; Robust & interpretable model</p>
-                <p class="fragment" style="text-align: left">&bull; Modular GPU-accelerated implementation</p>
+                <p class="fragment" style="text-align: left">&bull; Differentiable & fast </p>
+                <p class="fragment" style="text-align: left">&bull; Robust & interpretable model (Doubles as mock generator) </p>
                 <p class="fragment" style="text-align: left">&bull; Reduced number of weights
                     <br>
                     &nbsp;&nbsp;&nbsp; &rArr; Direct inference of model parameters possible
                 </p>
+                <aside class="notes">
+                    <p>( ~10min to simulate a $3\,h^{-1}\,\mathrm{Gpc}$ box)</p>
+                </aside>
             </section>
         </section>
         <section>
@@ -717,10 +677,10 @@
                 <p style="font-size: 70%">Ding, Doeser, Lavaux, Jasche (2025), in prep.</p>
             </section>
             <section data-transition="none" data-background-transition="none">
-                <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+                <h2>Field-Level inference from Galaxy surveys with $\texttt{BORG}$</h2>
                 <div data-transition="none" class="r-stack" style="position: relative">
                     <div>
-                        <img class="fancy_img" src="assets/borg_v2.svg">
+                        <img class="fancy_img" data-src="assets/borg_v2.svg">
                         <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
                             <div
                                     style="display: inline; width: 800px; text-align: left">
@@ -745,35 +705,39 @@
                         Parameter space is highly degenerate
                     </p>
                 </div>
+                <aside class="notes">
+                    <p>Unlike Pinetree, we cannot identify and fix all degeneracies by hand</p>
+                </aside>
             </section>
             <section>
                 <p style="font-size: 1.2em">Can we pick better priors $P(\theta)$?</p>
+                <p style="font-size: 90%; text-align: left; padding-left: 30px">Using $N$-body simulations e.g. Quijote (Villaescusa-Navarro et al., 2020)</p>
             </section>
-            <section data-auto-animate>
-                <h3>physics informed priors from simulations</h3>
+            <section>
+                <h3>Physics-informed priors from simulations</h3>
                 <div style="display: flex; align-items: center">
-                    <img class="fancy_img" style="position: relative; left: 100px" src="assets/quijote_dm.svg"
+                    <img class="fancy_img" style="position: relative; left: 100px"  data-src="assets/quijote_dm.svg"
                          height="300">
                     <img class="fancy_img fragment" data-fragment-index="0" style="position: relative; right: 200px"
-                         src="assets/quijote_pk_m.svg" height="300">
+                          data-src="assets/quijote_pk_m.svg" height="300">
                     <span class="fragment" data-fragment-index="2"
                           style="position: relative; right: 177px">$$\div$$</span>
-                    <img class="fancy_img" style="position: relative; right: 150px;" src="assets/quijote_dg.svg"
+                    <img class="fancy_img" style="position: relative; right: 150px;" data-src="assets/quijote_dg.svg"
                          height="300">
                     <img class="fancy_img fragment" data-fragment-index="1" style="position: relative; right: 435px"
-                         src="assets/quijote_pk_h.svg" height="300">
+                         data-src="assets/quijote_pk_h.svg" height="300">
                     <span class="fragment" data-fragment-index="2" style="position: relative; right: 407px">$$=$$</span>
                     <img class="fancy_img fragment" data-fragment-index="2" style="position: relative; right: 380px;"
-                         src="assets/quijote_ratios.svg" height="300">
+                         data-src="assets/quijote_ratios.svg" height="300">
                     <img class="fancy_img fragment" data-fragment-index="3" style="position: relative; right: 681px;"
-                         src="assets/quijote_ratios_weird.svg" height="300">
+                         data-src="assets/quijote_ratios_weird.svg" height="300">
                 </div>
                 <p class="fragment" data-fragment-index="4" style="padding-top: 1em; padding-bottom: 0.8em">&rArr; New constraint from
                     simulations <span style="color: #FFD369">$y = \frac{P_{\rm m}(k)}{P_{\rm h}(k)}$</span></p>
                 <p class="fragment" data-fragment-index="5" style="text-align: left; font-size: 70%;">Note: Any summary statistic other than power spectrum may be used</p>
             </section>
-            <section data-auto-animate>
-                <h3>physics informed priors from simulations</h3>
+            <section>
+                <h3>Physics-informed priors from simulations</h3>
                 <p>
                     <span>Conditional independent constraint $y\,$</span>: &nbsp;&nbsp;<span
                         class="fragment">$P(\text{data}|y) = P(\text{data})$</span>
@@ -796,10 +760,10 @@
                 </div>
             </section>
             <section data-transition="none" data-background-transition="none">
-                <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+                <h2>Field-Level inference from Galaxy surveys with $\texttt{BORG}$</h2>
                 <div data-transition="none" class="r-stack" style="position: relative">
                     <div>
-                        <img class="fancy_img" src="assets/borg_v2.svg">
+                        <img class="fancy_img" data-src="assets/borg_v2.svg">
                         <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
                             <div
                                     style="display: inline; width: 800px; text-align: left">
@@ -824,58 +788,53 @@
                             style="color: #FFD369;position: relative; top: 200px; right: 340px; font-size: 80%">
                     </p>
                     <p class="fragment"
-                       style="color: #FFD369; position: relative; top: 200px; left: 0px; font-size: 80%">
-                        Use self-consistent simulations & mock observables
+                       style="position: relative; top: 197px; right: 135px; font-size: 80%">
+                        <span class="yellow_text">Implicitly constrained prior parameter space</span> of bias model
                     </p>
                 </div>
             </section>
-<!--            <section>
-                <p><b>ROBIN-PiP $\times$ BORG</b></p>
-                <div style="display: flex; align-items: center">
-                    <div class="r-stack" style="position: relative; left: 120px">
-                        <img class="fragment fancy_img" data-fragment-index="0" src="assets/quijote_dg_0.svg"
-                             height="350">
-                        <img class="fragment fancy_img" data-fragment-index="1" src="assets/quijote_dg_1.svg"
-                             height="350">
-                    </div>
-                    <div class="r-stack" style="position: relative; left: 400px">
-                        <img class="fragment fancy_img" data-fragment-index="3" src="assets/quijote_ratios_1.svg"
-                             height="350">
-                        <img class="fragment fancy_img" data-fragment-index="6" src="assets/quijote_ratios_2.svg"
-                             height="350">
-                    </div>
-                </div>
-                <span>
-                    <p style="display: inline; position: relative; right: 170px" class="fragment"
-                       data-fragment-index="2">Clustering log-likelihood</p>
-                    <p style="display: inline; position: relative; right: 120px" class="fragment"
-                       data-fragment-index="4">$+ $</p>
-                    <p style="display: inline; position: relative; left: 50px"><span class="fragment" data-fragment-index="5">$w$</span> <span
-                            class="fragment" data-fragment-index="4">Robin-PiP</span></p>
-                </span>
-            </section>-->
             <section>
-                <img data-id="result" class="fancy_img" src="assets/robin_overview.svg" height="550px">
+                <div class="r-stack">
+                    <img data-id="result" class="fancy_img" data-src="assets/robin_overview.svg" height="700px">
+                </div>
+                <aside class="notes">
+                    <p>Model agnostic to bias model</p>
+                    <p>Can also be applied to EFT inference</p>
+                </aside>
             </section>
             <section>
-                <p style="padding-left: 40px" class="left_heading">Forward model setup</p>
+                <p style="padding-left: 40px" class="left_heading">Self-consistent test</p>
                 <div class="r-stack">
-                    <ul class="fragment fade-in-then-out" style="padding-left: 40px">
-                        <li>LPT gravity solver</li>
-                        <li>Truncated power law as bias model</li>
-                        <li>Inference on mock halo data</li>
-                        <li>Two inference scenarios:
-                        <ol>
-                            <li>No priors on bias parameters</li>
-                            <li>Uniform priors on bias parameters</li>
+                    <ul style="padding-left: 40px">
+                        <li class="fragment">Inference with original $\texttt{BORG}$ pipeline</li>
+                        <li class="fragment">Inference with additional $\texttt{Robin-Pip}$ contribution</li>
+                        <li class="fragment">Forward model: first-order LPT $+$ Truncated power law halo bias</li>
+                        <li class="fragment">Two inference scenarios:
+                        <ol style="padding-left: 30px; padding-bottom: 20px">
+                            <li class="fragment">Wide uniform priors on bias parameters</li>
+                            <li class="fragment">Bounded uniform priors on bias parameters</li>
                         </ol>
                         </li>
                     </ul>
-                    <img class="fragment fancy_img" src="assets/tpl_vis.svg">
                 </div>
             </section>
             <section>
                 <h3>Inference scenario 1</h3>
+                <p style="font-size: 90%">\[
+                    \lambda(x) = \textcolor{teal}{\bar{N}} (\delta_{\rm m}(x) + 1)^{\textcolor{teal}{\alpha}} \exp \left[- \left(\frac{\delta_{\rm m}(x) + 1}{\textcolor{teal}{\rho_{\exp}}}\right)^{-\textcolor{teal}{\varepsilon}}\right]
+
+                    \]
+                </p>
+                <p style="font-size: 90%">
+                    \[
+                    \begin{align}
+                    \bar{N} &\in \left( - \infty, \infty \,\right) \\
+                    \alpha &\in \left( - \infty, \infty \,\right), \\
+                    \varepsilon &\in \left( - \infty, \infty \,\right), \\
+                    \rho_{\rm exp} &\in \left( - \infty, \infty \,\right).
+                    \end{align}
+                    \]
+                </p>
             </section>
             <section data-transition="none-out">
                 <div class="r-stack">
@@ -883,13 +842,13 @@
                         <p style="padding-bottom: 3em">$\texttt{BORG}$</p>
                         <p>$\texttt{BORG}$ & $\texttt{Robin-Pip}$</p>
                     </div>
-                    <img style="position:relative; left: 200px" class="fancy_img" src="assets/hsnr_1_fields.svg" height="500px">
+                    <img style="position:relative; left: 200px" class="fancy_img" data-src="assets/hsnr_1_fields.png" height="500px">
                 </div>
             </section>
             <section data-transition="none-in">
                 <div class="r-stack">
-                    <img class="fancy_img fragment fade-out" data-fragment-index="0" src="assets/hsnr_1_cross_corr.svg" height="500px">
-                    <img class="fancy_img" data-fragment-index="1" src="assets/hsnr_1_bias_func.svg" height="500px">
+                    <img class="fancy_img fragment fade-out" data-fragment-index="0" data-src="assets/hsnr_1_cross_corr.svg" height="600px">
+                    <img class="fancy_img" data-fragment-index="1" data-src="assets/hsnr_1_bias_func.svg" height="600px">
                 </div>
             </section>
             <section>
@@ -900,38 +859,57 @@
             </section>
             <section>
                 <h3>Inference scenario 2</h3>
+                <p style="padding-top: 0.3em">Now with bounded priors:</p>
+                <p style="font-size: 90%">
+                    \[
+                    \begin{align}
+                    \bar{N} &\in \left( 0, 10^8 \,\right)\\
+                    \alpha &\in \left( 0, 6 \,\right],\\
+                    \varepsilon &\in \left( 0, 3 \,\right], \\
+                    \rho_{\rm exp} &\in \left( 0, 10 \,\right].
+                    \end{align}
+                    \]
+                </p>
+            </section>
+            <section data-transition="none-out">
+                <div class="r-stack">
+                    <div style="position: relative; right: 410px; text-align: left;">
+                        <p style="padding-bottom: 3em">$\texttt{BORG}$</p>
+                        <p>$\texttt{BORG}$ & $\texttt{Robin-Pip}$</p>
+                    </div>
+                    <img style="position:relative; left: 200px" class="fancy_img" data-src="assets/lsnr_1_fields.png" height="500px">
+                </div>
+            </section>
+            <section data-transition="none">
+                <img class="fancy_img" data-src="assets/robin_bias_v2.png" height="500px">
             </section>
             <section>
-                <p>Add backup slide with ground truth for the corner plot</p>
-                <p>Add backup slide for bias function & ratios were we have vertical lines to help guide the eye for the degenerate regions</p>
-                <aside class="notes">
-                    <p>note down number for the discussion with the degeneracies</p>
-                </aside>
+                <h3>Check bias parameter constraints</h3>
             </section>
             <section>
                 <div class="r-stack">
-                    <img class="fancy_img fragment fade-out" data-fragment-index="0" src="assets/robin_fields_v2.svg">
-                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="0" src="assets/robin_bias_corner_v2.svg">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/robin_bias_v2.svg">
-                    <img class="fancy_img fragment fade-in-then-out" src="assets/robin_bias_ratio_samples_v2.svg">
-                    <img class="fancy_img fragment" src="assets/robin_bias_acf_v2.svg">
+                    <img class="fancy_img fragment fade-out" data-fragment-index="0" data-src="assets/robin_bias_corner_v2.svg">
+                    <img class="fancy_img fragment fade-in-then-out" data-fragment-index="0" data-src="assets/robin_bias_ratio_samples_v2.svg" height="500px">
                 </div>
+            </section>
+            <section>
+                <p class="left_heading">Increased sampling efficiency</p>
+                <img class="fancy_img fragment" data-src="assets/robin_acf_lsnr.png" height="500px">
             </section>
         </section>
         <section>
             <section>
                 <h2>Summary</h2>
-                <p style="text-align: left; font-size: 1.2em">Physics-informed neural bias $\texttt{PineTree}$</p>
+                <p style="text-align: left; font-size: 1.1em">Physics-informed neural bias &mdash; $\texttt{PineTree}$</p>
                 <ul style="text-align: left">
                     <li>Reduce parameter space through e.g. symmetries</li>
                     <li>Computationally efficient & differentiable</li>
-                    <li>Direct model parameter inference possible</li>
+                    <li>Application as Bayesian neural network possible</li>
                 </ul>
-                <p style="text-align: left; font-size: 1.2em">Physics-informed priors $\texttt{Robin-PiP}$</p>
+                <p style="text-align: left; font-size: 1.1em">Physics-informed priors &mdash; $\texttt{Robin-Pip}$</p>
                 <ul style="text-align: left">
-                    <li>Principled way of incorporating high-fidelity simulations into
-                        inference</li>
-                    <li>Model agnostic</li>
+                    <li>Principled way of incorporating high-fidelity simulations</li>
+                    <li>Agnostic to underlying forward model</li>
                     <li>Improve parameter constraints & sampling efficiency</li>
                 </ul>
             </section>
@@ -939,40 +917,46 @@
                 <h2>Outlook</h2>
                 <p class="left_heading">$\texttt{PineTree}$</p>
                 <ul>
-                    <li>Text mock generator for small mass halos</li>
-                    <li>reduce assumptions e.g. Poisson statistics, independent sampling</li>
-                    <li>Increase model complexity e.g. Dipole kernel, cosmology dependence</li>
+                    <li>Reduce modelling assumptions e.g. Poisson statistics</li>
+                    <li>Increase model complexity e.g. cosmology dependence</li>
                 </ul>
                 <p class="left_heading">$\texttt{Robin-Pip}$</p>
-                <ul>
-                    <li>Test with over-parameterised models</li>
+                <ul style="padding-bottom: 0.3em">
+                    <li>Test with over-parameterised models e.g. neural networks</li>
                     <li>Benchmark with external simulations</li>
                 </ul>
-                <p>Testing on independent high-fidelity simulations e.g. Quijote</p>
-                <p>Extension to galaxy mock and eventually real data</p>
+                <div class="r-frame">
+                    <p>Test end-to-end inference on independent high-fidelity simulations</p>
+                    <p>Extension to galaxy mocks and eventually real data</p>
+                </div>
             </section>
         </section>
         <section>
+                <h1>Back-up slides</h1>
+        </section>
+        <section>
             <section>
-                <h2>Back-up slides</h2>
+                <h3>PineTree</h3>
             </section>
             <section>
                 <h4>Log-Normal mixture network</h4>
-                <p style="padding-bottom: 0">$$n_j\big(M|\boldsymbol{\psi_j}\big) = \frac{\bar{N}_j}{V} \sum_{i}^{N}
-                    \frac{\alpha_{ij}}{M}
-                    \mathcal{N}(\log M |\, \mu_{ij},\sigma_{ij})$$</p>
+                <p style="padding-bottom: 0">$$ n(M|\psi_{i}) = \frac{\bar{N}_i}{V}\sum_{n=1}^{N_{\text{mix}}} \frac{\alpha_{ni}}{M \sqrt{2\pi\sigma_{ni}^{2}}} \exp\left[ - \frac{\left( \ln M - \mu_{ni} \right) ^{2}}{2\sigma_{ni}^{2}} \right],
+                    \label{eq:mdn}$$</p>
                 <span>
-                    <p style="text-align: left">$\bar{N}_j = \exp\left[\omega^{\bar{N}}\boldsymbol{\psi_j} + b^{\bar{N}} \right]$</p>
-                    <p style="text-align: left">$\alpha_{ij} = \text{softmax}(w_i^\alpha\boldsymbol{\psi_j} + b_i^\alpha)$</p>
-                    <p style="text-align: left">$\mu_{ij} = \begin{cases}
-                        w_i^\mu\boldsymbol{\psi_j} + b_i^\mu &\text{if $i = 0$}\\
-                        \text{max}\big[ w_i^\mu\boldsymbol{\psi_j} + b_i^\mu \big] + \mu_{i-1} &\text{if $ i > 0$}
+                    <p style="text-align: left">$\bar{N}_i = \exp\left[\omega^{\bar{N}}\boldsymbol{\psi}_{i} + b^{\bar{N}} \right]$</p>
+                    <p style="text-align: left">$\boldsymbol{\alpha}_{i} = \text{softmax}(\boldsymbol{\omega}^\alpha\psi_{i} + \boldsymbol{b}^\alpha)$</p>
+                    <p style="text-align: left">$\mu_{ni} = \begin{cases}
+                        w_n^\mu \psi_i + b_n^\mu &\text{if $n = 0$}\\
+                        \text{max}\big[ w_n^\mu\psi_i + b_n^\mu \big] + \mu_{n-1} &\text{if $ n > 0$}
                         \end{cases}$
                     </p>
-                    <p style="text-align: left">$\sigma_{ij} = \exp\left[w_i^\sigma\boldsymbol{\psi_j} + b_i^\sigma\right]$</p>
+                    <p style="text-align: left">$\sigma_{ni} = \exp\left[\omega_{n}^\sigma \psi_{i} + b_{n}^\sigma\right]$</p>
                 </span>
             </section>
             <section>
+                $$\ln P_{i,M}(d=N^{\rm{obs}}_{i,M}\,| \lambda_{i,M}) = N^{\rm{obs}}_{i,M} \ln \lambda_{i,M} - \ln N^{\rm{obs}}_{i,M}! - \lambda_{i,M}$$
+            </section>
+<!--            <section>
                 <h4>Sampling</h4>
                 <p style="padding-bottom: 1em">$n_j\big(M|\boldsymbol{\psi_j}\big) = \frac{\bar{N}_j}{V}
                     \mathcal{P}(M|\boldsymbol{\psi_j}, \boldsymbol{w}) = $ <span>$\frac{\bar{N}_j}{V} \sum_{i}^{N} \frac{\alpha_{ij}}{M}
@@ -981,6 +965,31 @@
                 <p style="padding-top: 1em">$N_j\curvearrowleft \mathcal{P}_{\rm Poiss.}(\lambda_j = \bar{N}_j)$ <span
                         class="fragment"> &xrarr; $\{M_j\} \curvearrowleft \sum_{i}^{N} \frac{\alpha_{ij}}{M} \mathcal{N}(\log M |\, \mu_{ij},\sigma_{ij})$</span>
                 </p>
+            </section>-->
+            <section>
+                <div style="display: inline-block">
+                    <p style="font-size: 90%">Conditional halo mass function</p>
+                    <img class="fancy_img" data-src="assets/conditional_hmf.png" height="510">
+                </div>
+                <div style="display: inline-block">
+                    <p style="font-size: 90%">Cross-correlation coefficient</p>
+                    <img class="fancy_img" data-src="assets/cross-correlation.png" height="510">
+                </div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Robin-Pip</h3>
+            </section>
+            <section>
+                <img class="fancy_img" src="assets/robin_bias_v2_with_helperlines.png" height="600px">
+                <aside class="notes">
+                    $$
+                    \mathcal{L}_{\rm clustering} = - \sum_x \lambda_x
+                    $$
+                    <p>\(\lambda_x < 0.05\)</p>
+                    <p>Consequently, a \(20\%\) change in the TPL function, for instance, predicting \(\lambda_x = 0.06\) instead of \(\lambda_x = 0.05\)</p>
+                </aside>
             </section>
         </section>
     </div>
