@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>template</title>
+    <meta name="description" content="Talk template">
+    <meta name="author" content="AUTHORNAME">
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-transition="slide-in none-out">
+            <div class="r-stack">
+                <p class="fragment fade-out" data-fragment-index="0" style="font-size: 1.2em; font-weight: bold">Bayesian Inference &mdash; An example</p>
+                <img class="fancy_img fragment" data-fragment-index="0" src="assets/example_setup_2.jpg" height="600">
+            </div>
+        </section>
+        <section data-transition="none">
+            <video style="border-radius: 15px" data-autoplay data-src="assets/noisy_obs.mp4" height="450"></video>
+        </section>
+        <section data-transition="none-in slide-out" data-auto-animate>
+            <p class="left_heading">Bayesian Inference &mdash; An example</p>
+            <ul style="padding-bottom: 20px">
+                <li class="fragment" data-fragment-index="0">Recorded light intensity at different times $I(t_{\text{obs}})$</li>
+                <li class="fragment" data-fragment-index="1">Theoretical model: <span class="fragment custom highlight-darkblue" data-fragment-index="6">$I'(t)\,$</span>$=\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$A$</span>$\,\sin(2\pi$<span class="fragment custom highlight-yellow" data-fragment-index="4">$f$</span>$t +\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$\phi$</span>$)+\,$<span class="fragment custom highlight-yellow" data-fragment-index="4">$B$</span>$\,+\,n$</li>
+                <li class="fragment" data-fragment-index="2">Simple additive Gaussian noise &Rightarrow; $P(\text{data}|\theta,\eta)=\,$<span class="fragment custom highlight-darkred" data-fragment-index="9">$\mathcal{N}((I' - I), \sigma^2)$</span></li>
+            </ul>
+            <div class="r-frame fragment" data-fragment-index="3">
+                <p class="fragment" data-fragment-index="3" style="display: inline-block; width: 45%; vertical-align: middle"><span class="fragment custom highlight-yellow" data-fragment-index="4">Target&nbsp;</span>& nuisance
+                    <br> parameters <span class="fragment custom highlight-yellow" data-fragment-index="4">$\theta$</span>$\,+\,$<span>$\eta$</span></p>
+                <p class="fragment" data-fragment-index="5" style="display: inline-block">&xrarr;</p>
+                <p class="fragment" data-fragment-index="5" style="display: inline-block; width: 45%; vertical-align: middle">Make prediction <span class="fragment custom highlight-darkblue" data-fragment-index="6">$\text{data}' = \text{Model}(\theta,\eta)$</span></p>
+                <p class="fragment" data-fragment-index="10" style="display: inline-block; rotate: 225deg; position: relative; bottom: 55px; left: 45px">&xrarr;</p>
+                <p class="fragment" data-fragment-index="7" style="display: inline-block; width: 33%; vertical-align: middle">Compare to data <br> with <span class="fragment custom highlight-darkred" data-fragment-index="9">$P(\text{data}|\theta,\eta)$</span></p>
+                <p class="fragment" data-fragment-index="7" style="display: inline-block; rotate: 135deg; position: relative; bottom: 55px; right: 45px">&xrarr;</p>
+            </div>
+        </section>
+        <section data-auto-animate>
+            <p class="left_heading">Bayesian Inference &mdash; An example</p>
+            <img class="fancy_img" data-src="assets/noisy_params.svg">
+        </section>
+        <section>
+            <p style="text-align: left">New (big) data sets are coming in through e.g. Euclid, DESI, LSST, ...</p>
+            <p class="fragment">Example inference with <span class="yellow_text">more observations</span> and <span class="yellow_text">better sensitivity</span></p>
+            <div class="r-stack">
+                <img class="fancy_img fragment fade-in-then-out" data-src="assets/noisy_obs.svg" height="350px">
+                <img class="fancy_img fragment fade-in-then-out" data-src="assets/improved_obs.svg" height="350px"   >
+                <img class="fancy_img fragment fade-in-then-out" data-src="assets/biased_params_1.svg">
+                <img class="fancy_img fragment fade-in-then-out" data-src="assets/biased_params_2.svg">
+                <div class="fragment" style="text-align: left">
+                    <p>Noise is actually more complex:<br>
+                        $\sigma = \sigma_{\text{sky}} + \sigma_{\text{ant}} + \sigma_{\text{heat}} t$
+                    </p>
+                    <p>Simple noise model will bias results</p>
+                    <p>More <span class="yellow_text">(nuisance) parameters</span> needed</p>
+                </div>
+                <img class="fancy_img fragment fade-in-then-out" data-src="assets/correct_params_1.svg">
+                <img class="fancy_img fragment fade-in-then-out" data-src="assets/correct_params_2.svg">
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1200,
+        height: 700,
+
+        slideNumber: "c",
+        controls: false,
+
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3]
+    });
+</script>
+</body>
+</html>
