@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Sexten Workshop - Simon Ding</title>
+    <meta name="description" content="Contributed talk">
+    <meta name="author" content="Simon Ding">
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+    <style>
+        .fancy_img {
+            box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+            border-radius: 7px;
+        }
+
+        .highlight-yellow {
+            border-radius: 1em 0 1em 0;
+            background-image: linear-gradient(
+                    -100deg,
+                    rgba(255, 224, 0, 0.2),
+                    rgba(255, 224, 0, 0.7) 95%,
+                    rgba(255, 224, 0, 0.1)
+            );
+        }
+    </style>
+
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background-image="assets/euclid_mock.png"
+                 data-background-size="1200 700"
+                 style="position: relative"
+                 data-transition="none"
+                 data-background-transition="none"
+                 data-auto-animate>
+            <div style="background-color: whitesmoke; position: relative; right: 200px; top: 600px; width: 1600px; height: 200px; display: flex; justify-content: center">
+                <img src="assets/EC_logos_official_Blue_with_text.png"
+                     style="display:inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/iap.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/aquila.jpg" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/sorbonne_logo.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/stockholm_logo.png"
+                     style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img style="position:relative; left:70px;" src=" assets/guilhem.jpeg" height="80px">
+                <img style="position:relative; left:70px;" src="assets/jens.jpeg" height="80px">
+                <img style="position:relative; left:80px;" src="assets/LD_brighter.jpeg" height="80px">
+            </div>
+            <div data-transition="none" style="position: relative; bottom:100px">
+                <div style="border-radius: 15px 80px; background: rgba(102,107,107,0.8); text-align: center">
+                    <h2 data-id="title">Bayesian inference</h2>
+                    <h2 data-id="title" style="margin-top: -23px">with physics informed priors</h2>
+                    <h4>from simulations</h4>
+                    <p style="font-size: 75%">New Strategies for Extracting Cosmology from Future Galaxy Surveys II,
+                        03.07.2024</p>
+                </div>
+                <div data-transition="none" style="padding: 10px"></div>
+                <div data-transition="none"
+                     style="border-radius: 15px; background: rgba(102,107,107,0.8); text-align: center">
+                    <p><b style="color: #FFD369">Simon Ding</b> in collaboration with <b style="color: #FFD369">Ludvig
+                        Doeser</b></p>
+                    <p style="font-size:70%;">supervised by <b style="color: #EEEEEE">Guilhem Lavaux</b> (IAP) & <b
+                            style="color: #EEEEEE">Jens Jasche</b> (Stockholm
+                        University)
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <section data-auto-animate>
+                <h2>Bayesian inference</h2>
+                <p class="fragment" style="text-align: left"><b>Goal:</b> Cosmological inference with large scale
+                    structures</p>
+                <p class="fragment" style="text-align: left"><b>Data:</b> Galaxy clustering surveys e.g. Euclid, DESI,
+                    LSST, ...</p>
+                <p class="fragment" style="text-align: left"><b>Challenge:</b> Accurate and efficient data modelling</p>
+                <ul>
+                    <li class="fragment">Non-trivial dynamics on small scales</li>
+                    <li class="fragment">Maintain computational performance on large survey volumes</li>
+                    <li class="fragment">New (unknown) systematics</li>
+                    <li class="fragment">...</li>
+                </ul>
+                <div style="display: flex">
+                    <img style="position: absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; top: 0px; max-height: 110%"
+                         class="fragment fade-in-then-out" src="assets/free_parameters.jpg">
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h2>Bayesian inference</h2>
+                <p style="text-align: left"><b>Goal:</b> Cosmological inference with large scale structures</p>
+                <p style="text-align: left"><b>Data:</b> Galaxy clustering surveys e.g. Euclid, DESI, LSST, ...</p>
+                <p style="text-align: left"><b>Challenge:</b> How to incorporate more flexible models? <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    e.g. higher-order terms in EFT, neural networks, ...</p>
+                <p style="padding-top: 1em" class="fragment">We only have one Universe!<br>
+                    &rarr; Data unable to constrain both physics and nuisance parameters
+                </p>
+            </section>
+            <section data-auto-animate data-transition="fade-in fade-out">
+                <h2 style="padding-bottom: 1em">Bayesian inference</h2>
+                <p>Possible solutions:</p>
+                <ol type="1" style="padding-bottom: 3.8em">
+                    <li class="fragment">Reduce parameter space</li>
+                    <li class="fragment">Use better (behaved) priors $P(\theta)$</li>
+                </ol>
+            </section>
+        </section>
+        <section data-auto-animate>
+            <h2>Bayesian inference</h2>
+            <h3 style="margin-top: -23px;">with </h3>
+            <h3 style="margin-top: -23px; color: #FFD369">physics informed priors from simulations</h3>
+        </section>
+        <section>
+            <section data-auto-animate>
+                <h3 style="position: relative; bottom: 1em">physics informed priors from simulations</h3>
+                <h3>&mdash; An inference example &mdash;</h3>
+            </section>
+            <section data-transition="none" data-background-transition="none">
+                <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+                <div data-transition="none" class="r-stack" style="position: relative">
+                    <div class="fragment fade-out" data-fragment-index="1"
+                         style="background-color: white; width:292px;height:305px; position: relative; right: -423px; bottom: 11px"></div>
+                    <div class="fragment fade-out" data-fragment-index="2"
+                         style="background-color: white; width:230px;height:300px; position: relative; right: 454px; bottom: 13px"></div>
+                    <div class="fragment fade-out" data-fragment-index="3"
+                         style="background-color: white; width:205px;height:300px; position: relative; right: 255px; bottom: 15px"></div>
+                    <div class="fragment fade-out" data-fragment-index="4"
+                         style="background-color: white; width:207px;height:311px; position: relative; right: 50px; bottom: 13px"></div>
+                    <div class="fragment fade-out" data-fragment-index="5"
+                         style="background-color: white; width:208px;height:311px; position: relative; left: 171px; bottom: 16px"></div>
+                    <div class="fragment fade-out" data-fragment-index="6"
+                         style="background-color: white; width:30px;height:30px; position: relative; right:40px; bottom: 177px"></div>
+                    <div class="fragment fade-out" data-fragment-index="6"
+                         style="background-color: white; width:30px;height:30px; position: relative; right:455px; bottom: 176px"></div>
+                    <div class="fragment fade-out" data-fragment-index="6"
+                         style="background-color: white; width:730px;height:104px; position: relative; right:180px; bottom: 217px"></div>
+
+                    <div class="fragment fade-out" data-fragment-index="7"
+                         style="background-color: white; width:398px;height:90px; position: relative; left:369px; bottom: 207px"></div>
+                    <div>
+                        <img class="fancy_img" src="assets/borg.png">
+                        <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
+                            <div
+                                    style="display: inline; width: 800px; text-align: left">
+                                Jasche & Wandelt (2013),
+                                Jasche, Leclercq & Wandelt (2015),<br>
+                                Lavaux & Jasche (2016),
+                                Jasche & Lavaux (2019)
+                            </div>
+                            <div
+                                    style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fragment"
+                       style="color: black; transform: rotate(-20deg); background-color: #e7e7e7; border-radius: 5px; position: relative; right: 160px; bottom: 42px">
+                        &nbsp;Bias model&nbsp;</p>
+                    <p class="fragment" data-fragment-index="9"
+                       style="color: #FFD369;position: relative; top: 200px; right: 340px; font-size: 80%">
+                        $\approx 2.1\times 10^6$ parameters
+                    </p>
+                </div>
+            </section>
+            <section data-auto-animate>
+                <h3 style="position: relative; bottom: 1em; visibility: hidden">placeholder</h3>
+                <div class="r-stack">
+                    <p style="padding-top: 1em; padding-bottom: 2em; visibility: hidden"></p>
+                    <p class="fragment fade-out" data-fragment-index="0">Galaxy bias model: $\,\delta_m(x) \rightarrow \delta_g(x)$</p>
+                    <p class="fragment current-visible" data-fragment-index="0">Galaxy bias model: $\,\delta_g(x) = b_1
+                        \delta_m(x)$</p>
+                    <div style="visibility: hidden; padding-top: 4.2em"></div>
+                </div>
+                <div style="display: flex">
+                    <img style="position: absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; top: 0px; max-height: 120%"
+                         class="fragment fade-in-then-out fancy_img" data-fragment-index="1"
+                         src="assets/pinetree_pipeline.png">
+                    <p class="fragment fade-in-then-out" data-fragment-index="1"
+                       style="position: relative; top:257px; font-size: 50%; left: 120px">Ding, Lavaux, Jasche 2024;
+                        <a href="https://arxiv.org/abs/2407.01391">ArXiv: 2407.01391</a></p>
+                </div>
+                <p style="visibility: hidden">This is hidden</p>
+            </section>
+            <section data-auto-animate>
+                <h3>physics informed priors from simulations</h3>
+                <div style="display: flex; align-items: center">
+                    <img class="fancy_img" style="position: relative; left: 100px" src="assets/quijote_dm.svg"
+                         height="300">
+                    <img class="fancy_img fragment" data-fragment-index="0" style="position: relative; right: 200px"
+                         src="assets/quijote_pk_m.svg" height="300">
+                    <span class="fragment" data-fragment-index="2"
+                          style="position: relative; right: 177px">$$\div$$</span>
+                    <img class="fancy_img" style="position: relative; right: 150px;" src="assets/quijote_dg.svg"
+                         height="300">
+                    <img class="fancy_img fragment" data-fragment-index="1" style="position: relative; right: 435px"
+                         src="assets/quijote_pk_g.svg" height="300">
+                    <span class="fragment" data-fragment-index="2" style="position: relative; right: 407px">$$=$$</span>
+                    <img class="fancy_img fragment" data-fragment-index="2" style="position: relative; right: 380px;"
+                         src="assets/quijote_ratios.svg" height="300">
+                    <img class="fancy_img fragment" data-fragment-index="3" style="position: relative; right: 684px;"
+                         src="assets/quijote_ratios_weird.svg" height="300">
+                </div>
+                <p class="fragment" data-fragment-index="4" style="padding-top: 1em; padding-bottom: 0.8em">&rArr; New constraint from
+                    simulations <span style="color: #FFD369">$r = \frac{P_m(k)}{P_g(k)}$</span></p>
+                <p class="fragment" data-fragment-index="5" style="text-align: left; font-size: 70%;">Note: Any summary statistic other than power spectrum may be used</p>
+            </section>
+            <section data-auto-animate>
+                <h3>physics informed priors from simulations</h3>
+                <p>
+                    <span>Conditional independent constraint $r\,$</span>: &nbsp;&nbsp;<span
+                        class="fragment">$P(\text{data}|r) = P(\text{data})$</span>
+                </p>
+                <div class="r-stack">
+                    <p class="fragment">\[
+                        \begin{aligned}
+                        P(\theta|\text{data}, r) &amp; = \frac{P(\text{data}, r|\theta)P(\theta)}{P(\text{data})} \\
+                        &amp; = \frac{P(\text{data}|\theta)}{P(\text{data})} \frac{P(r|\theta)P(\theta)}{P(r)} =
+                        \frac{P(\text{data}|\theta)P(\theta|r)}{P(\text{data})} \\
+                        &amp; \propto P(\text{data}|\theta)P(r|\theta)P(\theta) \phantom{\frac{P(\text{data},
+                        r|\theta)P(\theta)}{P(\text{data})}}
+                        \end{aligned}
+                        \]
+                    </p>
+                    <div class="fragment fade-out"
+                         style="background-color: #191919; width:1200px;height:3em; position: relative;"></div>
+                    <div class="fragment fade-out"
+                         style="background-color: #191919; width:800px;height:3em; position: relative; right: 0em; top: 3em;"></div>
+                </div>
+            </section>
+            <section>
+                <p style="font-size: 1.2em">
+                    <b style="color: #FFD369">RO</b>bust <b style="color: #FFD369">B</b>ayesian <b
+                        style="color: #FFD369">IN</b>ference with <b style="color: #FFD369">P</b>hysics-<b
+                        style="color: #FFD369">i</b>nformed <b style="color: #FFD369">P</b>rior</p>
+                <p style="font-size: 1.2em"><b>ROBIN-PiP</b></p>
+            </section>
+            <section data-transition="none" data-background-transition="none">
+                <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+                <div data-transition="none" class="r-stack" style="position: relative">
+                    <div>
+                        <img class="fancy_img" src="assets/borg.png">
+                        <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
+                            <div
+                                    style="display: inline; width: 800px; text-align: left">
+                                Jasche & Wandelt (2013),
+                                Jasche, Leclercq & Wandelt (2015),<br>
+                                Lavaux & Jasche (2016),
+                                Jasche & Lavaux (2019)
+                            </div>
+                            <div
+                                    style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fragment"
+                       style="color: black; transform: rotate(-10deg); background-color: #e7e7e7; border-radius: 5px; position: relative; left: 320px; bottom: 172px">
+                        &nbsp;Robin-PiP&nbsp;
+                    </p>
+                    <p
+                       style="color: black; transform: rotate(-20deg); background-color: #e7e7e7; border-radius: 5px; position: relative; right: 160px; bottom: 42px">
+                        &nbsp;Bias model&nbsp;</p>
+                    <p
+                       style="color: #FFD369;position: relative; top: 200px; right: 340px; font-size: 80%">
+                        $\approx 2.1\times 10^6$ parameters
+                    </p>
+                    <p class="fragment"
+                       style="color: #FFD369; position: relative; top: 200px; left: 260px; font-size: 80%">
+                        Use self-consistent simulations & mock observables
+                    </p>
+                </div>
+            </section>
+            <section>
+                <p><b>ROBIN-PiP $\times$ BORG</b></p>
+                <div style="display: flex; align-items: center">
+                    <div class="r-stack" style="position: relative; left: 120px">
+                        <img class="fragment fancy_img" data-fragment-index="0" src="assets/quijote_dg_0.svg"
+                             height="350">
+                        <img class="fragment fancy_img" data-fragment-index="1" src="assets/quijote_dg_1.svg"
+                             height="350">
+                    </div>
+                    <div class="r-stack" style="position: relative; left: 400px">
+                        <img class="fragment fancy_img" data-fragment-index="3" src="assets/quijote_ratios_1.svg"
+                             height="350">
+                        <img class="fragment fancy_img" data-fragment-index="6" src="assets/quijote_ratios_2.svg"
+                             height="350">
+                        <img class="fragment fancy_img" data-fragment-index="7" src="assets/quijote_ratios_3.svg"
+                             height="350">
+                    </div>
+                </div>
+                <span>
+                    <p style="display: inline; position: relative; right: 170px" class="fragment"
+                       data-fragment-index="2">Galaxy clustering log-likelihood</p>
+                    <p style="display: inline; position: relative; right: 120px" class="fragment"
+                       data-fragment-index="4">$+ $</p>
+                    <p style="display: inline; position: relative; left: 50px"><span class="fragment" data-fragment-index="5">$w$</span> <span
+                            class="fragment" data-fragment-index="4">Robin-PiP</span></p>
+                </span>
+            </section>
+            <section>
+                <div class="r-stack">
+                    <img class="fancy_img" src="assets/robin_borg_0.svg" height="650">
+                    <img class="fancy_img fragment" src="assets/robin_borg_1.svg" height="650">
+                    <img class="fancy_img fragment" src="assets/robin_borg_2.svg" height="650">
+                </div>
+            </section>
+            <section>
+                <img class="fancy_img" src="assets/cnn_sampling_comparison.png" height="670">
+            </section>
+            <section>
+                <img class="fancy_img" src="assets/cnn_ratio_comparison.svg" height="384">
+            </section>
+        </section>
+        <section>
+            <h2>Bayesian inference</h2>
+            <h2 style="margin-top: -23px">with physics informed priors</h2>
+            <p style="font-size:120%; padding-bottom: 1em">using <span style="color: #FFD369">ROBIN-PiP</span></p>
+            <p class="fragment" style="text-align: left">&bull; Principled way of incorporating simulations into
+                inference</p>
+            <p class="fragment" style="text-align: left">&bull; Model agnostic</p>
+            <p class="fragment" style="text-align: left">&bull; Can enable direct inference of more sophisticated model
+                <br>
+                &nbsp;&nbsp;&nbsp;e.g. neural networks</p>
+        </section>
+    </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1200,
+        height: 700,
+
+        slideNumber: "c",
+        controls: false,
+
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3]
+    });
+</script>
+</body>
+</html>
