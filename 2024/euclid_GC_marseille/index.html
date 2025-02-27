@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Halo mocks with NPE</title>
+    <meta name="description" content="Contributed talk, Sexten">
+    <meta name="author" content="Simon Ding">
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/white.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+
+    <style>
+        .fancy_img {
+            box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background-image="assets/euclid_mock.png"
+                 data-background-size="1200 700"
+                 style="position: relative"
+                 data-transition="none"
+                 data-background-transition="none">
+            <div style="background-color: white; position: relative; right: 200px; top: 600px; width: 1600px; height: 200px; display: flex; justify-content: center">
+                <img src="assets/EC_logos_official_Blue_with_text.png"
+                     style="display:inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/iap.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/aquila.jpg" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/sorbonne_logo.png" style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+                <img src="assets/stockholm-university.png"
+                     style="display: inline; height: 80px; padding: 0px 5px 0px 5px;">
+            </div>
+            <div data-transition="none" style="position: relative; bottom:100px">
+                <div style="border-radius: 15px 80px; background: rgba(221,239,239,0.8); text-align: center">
+                    <h2>Fast and differentiable <br> mock catalogues</h2>
+                    <h4>for wide-field galaxy surveys using physical networks</h4>
+                    <p style="font-size: 80%">Euclid GC Meeting &mdash; Alternative Methods Splinter, Marseille, 01.02.2024</p>
+                </div>
+                <div data-transition="none" style="padding: 10px"></div>
+                <div data-transition="none"
+                     style="border-radius: 15px; background: rgba(221,239,239,0.8); text-align: center">
+                    <p><b>Simon Ding, PhD student @ IAP, France</b></p>
+                    <p style="font-size:70%;">supervised by <b>Guilhem Lavaux (IAP) & Jens Jasche (Stockholm
+                        University)</b>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section data-transition="none" data-background-transition="none">
+            <h4>Field-Level inference from Galaxy surveys with BORG</h4>
+            <div data-transition="none" class="r-stack" style="position: relative">
+                <div class="fragment fade-out" data-fragment-index="1"
+                     style="background-color: white; width:300px;height:300px; position: relative; right: -430px; bottom: 13px"></div>
+                <div class="fragment fade-out" data-fragment-index="2"
+                     style="background-color: white; width:230px;height:300px; position: relative; right: 470px; bottom: 13px"></div>
+                <div class="fragment fade-out" data-fragment-index="3"
+                     style="background-color: white; width:205px;height:300px; position: relative; right: 255px; bottom: 15px"></div>
+                <div class="fragment fade-out" data-fragment-index="4"
+                     style="background-color: white; width:207px;height:311px; position: relative; right: 50px; bottom: 13px"></div>
+                <div class="fragment fade-out" data-fragment-index="5"
+                     style="background-color: white; width:208px;height:311px; position: relative; left: 171px; bottom: 16px"></div>
+                <div class="fragment fade-out" data-fragment-index="6"
+                     style="background-color: white; width:30px;height:30px; position: relative; right:40px; bottom: 177px"></div>
+                <div class="fragment fade-out" data-fragment-index="6"
+                     style="background-color: white; width:30px;height:30px; position: relative; right:455px; bottom: 176px"></div>
+                <div class="fragment fade-out" data-fragment-index="6"
+                     style="background-color: white; width:740px;height:150px; position: relative; right:200px; bottom: 240px"></div>
+
+                <div class="fragment fade-out" data-fragment-index="7"
+                     style="background-color: white; width:400px;height:150px; position: relative; left:370px; bottom: 239px"></div>
+                <div>
+                    <img src="assets/borg.png">
+                    <div style="display: flex; align-items: center; font-size:50%; padding-top: 2em">
+                        <div class="fragment" data-fragment-index="8"
+                             style="display: inline; width: 800px; text-align: left">
+                            Jasche & Wandelt (2013),
+                            Jasche, Leclercq & Wandelt (2015),<br>
+                            Lavaux & Jasche (2016),
+                            Jasche & Lavaux (2019)
+                        </div>
+                        <div class="fragment" data-fragment-index="8"
+                             style="display: inline; position: relative; left: 100px">Image credit: D.K Ramanah
+                        </div>
+                    </div>
+                </div>
+                <p class="fragment" data-fragment-index="9"
+                   style="color: #3c6d56; transform: rotate(-10deg); background-color: #e7e7e7; border-radius: 5px; position: relative; left: 320px; bottom: 172px">
+                    &nbsp;$\texttt{PineTree}$&nbsp;
+                </p>
+                <p class="fragment" data-fragment-index="9"
+                   style="color: #3c6d56; transform: rotate(-20deg); background-color: #e7e7e7; border-radius: 5px; position: relative; right: 160px; bottom: 42px">
+                    &nbsp;$\texttt{PineTree}$&nbsp;</p>
+                <p class="fragment"
+                   style="color: #3c6d56; position: relative; top: 190px; right: 120px; font-size: 80%">
+                    <b>Doubles as mock generation pipeline</b>
+                </p>
+            </div>
+            <aside class="notes">
+                <p>Work in field-level inference from LSS surveys</p>
+                <p>Want to constrain initial conditions + cosmological parameters</p>
+                <p>A natural byproduct are forward models</p>
+                <p>Stress that we are not modeling on power spectrum level</p>
+            </aside>
+        </section>
+        <section>
+            <section>
+                <h3>Why care about realistic mock data?</h3>
+                <ul style="padding-top: 1em">
+                    <li class="fragment">Test our inference pipeline</li>
+                    <li class="fragment">Compute numerical covariance matrices for <b>2-pt, 3-pt</b> analysis</li>
+                    <li class="fragment">Simulation-Based inference (e.g. C. Hahn et al. 2023)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>How to generate good mock halo catalogues?</h3>
+                <p class="fragment" style="padding-top: 1.2em; text-align: left; font-size: 110%"><b>Gold standard:</b> $N$-body simulations</p>
+                <p class="fragment" style="font-size: 90%; text-align: left; padding-left: 36pt; color: dimgrey;"><b>Euclid flagship simulation</b>, <b>Quijote</b> (Villaescusa-Navarro, et al. 2020),
+                    <br> <b>Abacus</b> (Garrison, et al. 2017)</p>
+                <p class="fragment" style="padding-top: 1em; text-align: left"><b>BUT: </b>Huge volume required for next-generation
+                    surveys</p>
+                <p class="fragment" style="font-size: 90%; text-align: left; padding-left: 36pt"> Very expensive to run! (~ millions of CPU hours)</p>
+            </section>
+            <section>
+                <p style="font-size: 1.1em"><b>Want to be smarter than Machine learning..</b></p>
+                <ul>
+                    <li class="fragment">Physical loss function</li>
+                    <li class="fragment">Avoid the fear of overfitting</li>
+                    <li class="fragment">Avoid black box &rarr; want to learn about physics</li>
+                    <li class="fragment">Light-weight & scalable</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <p style="font-size: 190%; color: rgba(60,109,86,0.69)">$\texttt{PineTree}$</p>
+                <p>(<b>P</b>hysical and <b>I</b>nterpretable <b>NE</b>tworks for <b>TR</b>ac<b>E</b>r <b>E</b>mulation)</p>
+            </section>
+            <section>
+                <h3>setup</h3>
+                <div style="position: relative;">
+                    <div class="fragment" data-fragment-index="0"
+                         style="background-color: rgba(60,109,86,0.60); width: 330px; border-radius: 15px; display: inline-block; vertical-align: middle">
+                        <b>dark matter <br> over-density field</b>
+                    </div>
+                    <div class="fragment" data-fragment-index="1"
+                         style="font-size:1em; display: inline-block; vertical-align: middle"><b>&xrarr;</b></div>
+                    <div class="fragment" data-fragment-index="1"
+                         style="background-color: rgba(60,109,86,0.60); border-radius: 15px; width: 400px; display: inline-block; vertical-align: middle">
+                        <b>machine learning</b> <br>
+                        + <br>
+                        <b>physical contraints</b>
+                    </div>
+                    <div class="fragment" data-fragment-index="2"
+                         style="font-size:1em; display: inline-block; vertical-align: middle"><b>&xrarr;</b></div>
+                    <div class="fragment" data-fragment-index="2"
+                         style="background-color: rgba(60,109,86,0.60); border-radius: 15px; width: 300px; display: inline-block; vertical-align: middle">
+                        <b>$N$-body-like <br> halo catalogues</b>
+                    </div>
+                </div>
+                <div style="position: relative;">
+                    <div class="fragment" data-fragment-index="0"
+                         style="display: inline-block; vertical-align: middle; width: 330px; text-align: left">
+                        <p style="font-size: 90%">From approximate gravity solvers <br> i.e. 2LPT, COLA (Tassev et al. 2013)</p>
+                    </div>
+                    <div style="font-size:1em; display: inline-block; vertical-align: middle"><b
+                            style="visibility: hidden">&xrarr;</b>
+                    </div>
+                    <div class="fragment" data-fragment-index="1"
+                         style="width: 400px; display: inline-block; vertical-align: middle">
+                        <p>
+                        <ul style="font-size: 90%">
+                            <li>fast (GPU support)</li>
+                            <li>differentiable</li>
+                            <li>Stochastic</li>
+                            <li>Explainable</li>
+                            <li>17-32 parameters</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div style="font-size:1em; display: inline-block; vertical-align: middle"><b
+                            style="visibility: hidden">&xrarr;</b>
+                    </div>
+                    <div class="fragment" data-fragment-index="2"
+                         style="text-align: left; width: 300px; display: inline-block; vertical-align: middle">
+                        <p>Validated via:</p>
+                        <ul style="font-size: 90%">
+                            <li>Halo mass function</li>
+                            <li>Power spectrum</li>
+                            <li>Bispectrum</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fragment" data-fragment-index="3"
+                     style="font-size:50%; padding-top: 0em; position: relative; top: 30px; text-align: left">
+                    See T. Charnock et al. (2020)
+                </div>
+            </section>
+            <section>
+                <h4 class="fragment" data-fragment-index="10">Likelihood assumption</h4>
+                <div class="r-stack">
+                    <div>
+                        <div class="fragment" data-fragment-index="1"
+                             style="text-align: left; font-size: 80%; transform: rotate(-15deg)">
+                            <span style="position: relative; left: 210px">
+                            <span class="fragment" data-fragment-index="2">&bullet; Use non-local information</span><br>
+                            <span class="fragment" data-fragment-index="5">&bullet; Use isotropy</span>
+                            </span>
+                        </div>
+                        <div class="fragment" data-fragment-index="6"
+                             style="font-size: 80%; position: relative; left:55px; transform: rotate(-15deg)">
+                            &bullet; Model non-linearity
+                        </div>
+                        <div class="fragment" data-fragment-index="8"
+                             style="font-size: 80%; position: relative; bottom: 50px; left:380px; transform: rotate(-15deg)">
+                            &bullet; Generative process
+                        </div>
+                        <p>
+                    <span><img class="fragment" data-fragment-index="0" src="assets/density.png" height="200"
+                               style="display: inline; padding-right: 20pt;
+                             vertical-align: middle"> <span class="fragment" data-fragment-index="2">&rArr;</span>
+                        <img class="fragment" data-fragment-index="4" src="assets/monopole_kernel.png"
+                             height="200"
+                             style="display: inline; vertical-align: middle"></span>
+                            <span class="fragment" data-fragment-index="7">&rArr;<img src="assets/mdn.png" height="200"
+                                                                                      style="display: inline; vertical-align: middle"></span>
+                            <span class="fragment" data-fragment-index="9">&rArr;<img src="assets/sampling.png"
+                                                                                      width="300"
+                                                                                      style="display: inline; vertical-align: middle"></span>
+                        </p>
+                        <p><span class="fragment highlight-current-red" data-fragment-index="0"
+                                 style="position: relative; right: 50px">$\delta_m(x)$ &rarr; </span>
+                            <span class="fragment" data-fragment-index="4" style="position: relative; right: 23px"><b>Convolve</b> &rarr;</span>
+                            <span class="fragment" data-fragment-index="7"><b>Transform</b> &rarr;</span>
+                            <span class="fragment" data-fragment-index="9" style="position: relative; left: 20px"><b>Sample</b> &rarr;</span>
+                            <span class="fragment highlight-current-red" data-fragment-index="1"
+                                  style="position: relative; left: 55px">$n\big(M|\delta_m(x)\big)$</span>
+                        </p>
+                    </div>
+                    <img class="fragment current-visible" data-fragment-index="5"
+                         style="position: relative; right: 232px; top: 50px" src="assets/multipole_evol.gif"
+                         width="400">
+                </div>
+            </section>
+            <section>
+                <p style="font-size: 1.2em; text-align: left"><b>More on the training setup</b></p>
+                <ul>
+                    <li class="fragment">Optimize using <b>Poisson likelihood</b></li>
+                    <li class="fragment">10 halo catalogues at $z=0$ from <b>L-Gadget</b> + <b>rockstar</b></li>
+                    <li class="fragment">Corresponding <b>2LPT</b> over-density fields</li>
+                    <li class="fragment">$L = 500h^{-1}\,\rm{Mpc}$</li>
+                    <li class="fragment">$M_{\rm{vir}} > 2 \times 10^{12}\,M_{\odot}$</li>
+                    <li class="fragment">Validate on <b>unseen</b> simulations</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Preliminary Results</h3>
+                <p style="font-size:60%;">S. Ding et al. (in prep.)</p>
+            </section>
+            <section>
+                <img style="display: inline" class="fancy_img" src="assets/marginal_hmf.svg" height="650">
+            </section>
+<!--            <section>
+                <img class="fancy_img" src="assets/2lpt_power_sim_0.png" height="650">
+            </section>-->
+            <section>
+                <b style="font-size: 120%">Validation for lower end mass bin:</b>
+                <p style="padding-top: 1em">$2 \times 10^{12}\,M_{\odot} < M_{\rm{vir}} < 1 \times 10^{13}\,M_{\odot}$</p>
+            </section>
+            <section>
+                <img class="fancy_img" src="assets/power_spec_validation.svg" height="650">
+            </section>
+            <section>
+                <img class="fancy_img" src="assets/bispec_validation.svg" height="650">
+            </section>
+            <section>
+                <b style="font-size: 120%">On model interpretability</b>
+            </section>
+            <section>
+                <img class="fancy_img" src="assets/kernel_weights.svg" height="650">
+            </section>
+            <section>
+                <p style="font-size: 1.2em; text-align: left"><b>Note that</b></p>
+                <ul style="padding-top: 1em">
+                    <li class="fragment">
+                        <b>Physical loss</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Loss only based on Poisson likelihood</span>
+                    </li>
+                    <li class="fragment">
+                        <b>Generative process</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Sample as many realizations as we want</span>
+                    </li>
+                    <li class="fragment">
+                        <b>Generalizable model</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Results translate to differently seeded over-density fields</span>
+                    </li>
+                    <li class="fragment">
+                        <b>Bayesian Neural Network</b>
+                        <br>
+                        <span style="font-size: 70%; color: gray">Network weights can be sampled via MCMC</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3 style="padding-bottom: 1em">Summary</h3>
+            <p class="fragment" style="text-align: left">&bull; <b>Halo mock generator</b> for <b>LARGE</b>
+                (Euclid-like) volumes</p>
+            <p class="fragment" style="text-align: left">&bull; Differentiable & fast ( ~10min for $3\,h^{-1}\,\mathrm{Gpc}$ box)</p>
+            <p class="fragment" style="text-align: left">&bull; Robust & interpretable model</p>
+            <p class="fragment" style="text-align: left">&bull; Modular GPU-accelerated implementation</p>
+            <p class="fragment" style="text-align: left">&bull; Reduced number of weights
+                <br>
+                &nbsp;&nbsp;&nbsp; &rArr; Direct inference of model parameters possible
+            </p>
+            <p class="fragment" style="text-align: left">&bull; Extension to mock galaxies catalogues possible</p>
+        </section>
+        <section>
+            <section>
+                <h2>Back-up slides</h2>
+            </section>
+            <section>
+                <h4>Log-Normal mixture network</h4>
+                <p style="padding-bottom: 0">$$n_j\big(M|\boldsymbol{\psi_j}\big) = \frac{\bar{N}_j}{V} \sum_{i}^{N}
+                    \frac{\alpha_{ij}}{M}
+                    \mathcal{N}(\log M |\, \mu_{ij},\sigma_{ij})$$</p>
+                <span>
+                    <p style="text-align: left">$\bar{N}_j = \exp\left[\omega^{\bar{N}}\boldsymbol{\psi_j} + b^{\bar{N}} \right]$</p>
+                    <p style="text-align: left">$\alpha_{ij} = \text{softmax}(w_i^\alpha\boldsymbol{\psi_j} + b_i^\alpha)$</p>
+                    <p style="text-align: left">$\mu_{ij} = \begin{cases}
+                        w_i^\mu\boldsymbol{\psi_j} + b_i^\mu &\text{if $i = 0$}\\
+                        \text{max}\big[ w_i^\mu\boldsymbol{\psi_j} + b_i^\mu \big] + \mu_{i-1} &\text{if $ i > 0$}
+                        \end{cases}$
+                    </p>
+                    <p style="text-align: left">$\sigma_{ij} = \exp\left[w_i^\sigma\boldsymbol{\psi_j} + b_i^\sigma\right]$</p>
+                </span>
+            </section>
+            <section>
+                <h4>Sampling</h4>
+                <p style="padding-bottom: 1em">$n_j\big(M|\boldsymbol{\psi_j}\big) = \frac{\bar{N}_j}{V}
+                    \mathcal{P}(M|\boldsymbol{\psi_j}, \boldsymbol{w}) = $ <span>$\frac{\bar{N}_j}{V} \sum_{i}^{N} \frac{\alpha_{ij}}{M}
+                    \mathcal{N}(\log M |\, \mu_{ij},\sigma_{ij})$</span></p>
+                <p>$\langle N_{\text{halo}}\rangle_j = \bar{N}_j$ is Poisson</p>
+                <p style="padding-top: 1em">$N_j\curvearrowleft \mathcal{P}_{\rm Poiss.}(\lambda_j = \bar{N}_j)$ <span
+                        class="fragment"> &xrarr; $\{M_j\} \curvearrowleft \sum_{i}^{N} \frac{\alpha_{ij}}{M} \mathcal{N}(\log M |\, \mu_{ij},\sigma_{ij})$</span>
+                </p>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1200,
+        height: 700,
+
+        slideNumber: "c",
+        controls: false,
+
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3]
+    });
+</script>
+</body>
+</html>
